@@ -10,7 +10,6 @@ const slug = (name: string) =>
   name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const dimensions = [
-  { key: 'phones', label: 'Personal phones' },
   { key: 'screentime', label: 'Screen-time caps (school devices)' },
   { key: 'takehome', label: 'Take-home limits' },
   { key: 'youtube', label: 'YouTube blocked' },
@@ -24,11 +23,10 @@ const statusText: Record<string, string> = {
   na: 'Not addressed / unclear',
 };
 
-// SPPS's own row: phones limited by Policy 550.00; elementary iPads mostly
-// stay in carts (partial take-home limit); YouTube Shorts blocked (partial);
-// no screen-time caps; iPads from kindergarten.
+// SPPS's own row: elementary iPads mostly stay in carts (partial take-home
+// limit); YouTube Shorts blocked (partial); no screen-time caps; iPads from
+// kindergarten.
 const spps = {
-  phones: 'full',
   screentime: 'none',
   takehome: 'part',
   youtube: 'part',
@@ -98,18 +96,6 @@ const spps = {
     <span class="dot dot-na"></span> not addressed
     &nbsp;·&nbsp; Click a row name for the details and sources.
   </p>
-
-  <div class="note">
-    <p>
-      <strong>How to read this honestly.</strong> The dots summarize the sourced
-      details below — judgment calls live in the cards, not hidden in the
-      colors. Note that SPPS earns partial credit where it's due: elementary
-      iPads mostly stay in classroom carts, and YouTube Shorts are blocked. And
-      crude limits have critics too: most enacted screen-time laws carve out
-      exceptions for assessments and assistive technology, a caution
-      <a href="https://fordhaminstitute.org/national/commentary/beware-unintended-consequences-school-screen-time-limits">raised by the Fordham Institute</a>.
-    </p>
-  </div>
 
   <h2>The details, district by district</h2>
   <div class="detail-list">
