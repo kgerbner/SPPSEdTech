@@ -1,0 +1,152 @@
+# What's allowed on the SPPS iPad — entries for the apps explorer.
+#
+# HOW TO EDIT: each entry needs:
+#   name    — the app/program/category as parents know it
+#   status  — one of: allowed, limited, blocked, parent-tool
+#   note    — one or two sentences of plain-language explanation
+#   sources — at least one official link backing the status
+#   aliases — optional extra search words (lowercase)
+# Statuses reflect district-managed student iPads, per the cited SPPS pages.
+# When the policy watcher flags changes to SPPS pages, re-check these.
+
+- name: "Apple App Store"
+  status: blocked
+  note: >
+    Students cannot install their own apps. The App Store is removed by the
+    district's device management; apps come only from the reviewed Self Service
+    catalog.
+  aliases: [install, download, store]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "FaceTime"
+  status: blocked
+  note: "Blocked districtwide by pre-installed device management."
+  aliases: [video, call, calls]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "iMessage"
+  status: blocked
+  note: "Blocked districtwide; students also cannot add personal email accounts."
+  aliases: [messages, texting, text, imessages]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "Personal email accounts"
+  status: blocked
+  note: "Students cannot add personal email accounts to the iPad; only the school account works."
+  aliases: [gmail, email, mail]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "Facebook"
+  status: blocked
+  note: "Blocked by the internet filter at school and at home."
+  aliases: [social, media, meta]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "Snapchat"
+  status: blocked
+  note: "Blocked by the internet filter at school and at home."
+  aliases: [social, media, snap]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "TikTok"
+  status: blocked
+  note: "Blocked by the internet filter at school and at home."
+  aliases: [social, media, videos]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "Games (filter category)"
+  status: blocked
+  note: >
+    "Games" is a blocked website category in the iPad's filter, along with
+    gambling, violence, and sexual content — at school and at home. Individual
+    game apps are not in the Self Service catalog unless approved for
+    instruction.
+  aliases: [gaming, game, roblox, fortnite, minecraft, gambling]
+  sources:
+    - label: "SPPS iPad Help (EXPO Elementary)"
+      url: "https://expo.spps.org/families/ipad-information"
+
+- name: "YouTube Shorts"
+  status: blocked
+  note: "All YouTube Shorts are blocked, even though YouTube itself is available."
+  aliases: [shorts, short, videos]
+  sources:
+    - label: "SPPS iPad Help (Eastern Heights)"
+      url: "https://eastern.spps.org/ipad-help"
+
+- name: "YouTube"
+  status: limited
+  note: >
+    Accessible to students — videos flagged by the internet filter are blocked,
+    Shorts are blocked, and parents or staff can ask for any individual video
+    to be blocked or unblocked. (For comparison: Los Angeles schools block
+    YouTube on student devices entirely.)
+  aliases: [videos, video, google]
+  sources:
+    - label: "SPPS iPad Help (Eastern Heights)"
+      url: "https://eastern.spps.org/ipad-help"
+
+- name: "Web browsing (Safari)"
+  status: limited
+  note: >
+    Browsing works through a category filter that applies at school and at
+    home: adult content, violence, gambling, games, and social media categories
+    are blocked; everything else is reachable unless individually blocked.
+  aliases: [internet, browser, websites, web, safari, filter, filtering]
+  sources:
+    - label: "SPPS iPad Help (EXPO Elementary)"
+      url: "https://expo.spps.org/families/ipad-information"
+
+- name: "Self Service catalog (400+ approved apps)"
+  status: allowed
+  note: >
+    The district's own "app store": 400+ apps reviewed for content, data
+    privacy, and security. The authoritative, current list is published on the
+    district's App & Website Review page.
+  aliases: [approved, catalog, list, apps]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+    - label: "SPPS App & Website Review (official approved list)"
+      url: "https://www.spps.org/about/departments/infinite-campus/app-website-review"
+
+- name: "Schoology"
+  status: allowed
+  note: "The district's learning management system for grades 4–12: classes, assignments, and grades."
+  aliases: [lms, homework, assignments, grades, powerschool]
+  sources:
+    - label: "SPPS: Schoology Support for Families"
+      url: "https://www.spps.org/families/ipad-internet-and-app-support/schoology-support-for-families"
+
+- name: "Seesaw"
+  status: allowed
+  note: "The learning platform used in the early grades (K–3), under a district data-sharing agreement."
+  aliases: [lms, elementary, portfolio]
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- name: "Securly Home (for parents)"
+  status: parent-tool
+  note: >
+    A free app for SPPS families: see your student's online activity on the
+    school iPad, pause its internet, block specific websites yourself, or
+    schedule offline time — no district permission needed for home rules.
+  aliases: [securly, parental, controls, pause, bedtime, monitor]
+  sources:
+    - label: "SPPS: Securly Home"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families/securely-home"

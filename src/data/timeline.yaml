@@ -45,14 +45,31 @@
   title: "District pivots to 1:1 iPads"
   category: devices
   body: >
-    Less than two years after the referendum, SPPS leadership redirects the levy
-    toward a one-to-one iPad initiative — described in later reporting as "a
-    device-laden plan that voters had been told would not be pursued." The school
-    board approves a $5.72 million annual lease with Apple, rising to roughly
-    $8 million per year as the program expands to all schools.
+    Less than two years after the referendum, Superintendent Silva announces
+    iPads for every student — described by the Star Tribune as "a reversal of
+    the stance taken by the district in 2012" and "a device-laden plan that
+    voters had been told would not be pursued." The school board approves a
+    $5.72 million annual lease with Apple, rising to roughly $8 million per
+    year as the program expands to all schools.
   sources:
+    - label: "Star Tribune: iPads in hands of all students (May 2014)"
+      url: "http://www.startribune.com/may-30-st-paul-schools-to-put-ipads-in-hands-of-all-students/261269491/"
     - label: "Star Tribune: St. Paul schools embrace iPad era"
       url: "https://www.startribune.com/aug-23-st-paul-schools-embrace-ipad-era/272512171/"
+
+- id: classroom-plan-unclear-2014
+  date: 2014-08
+  dateDisplay: "August 2014"
+  title: "Devices before pedagogy: 'classroom plan still unclear'"
+  category: devices
+  body: >
+    Weeks before the first iPads reach students, MPR News reports that the
+    district cannot yet say how the devices will actually be used in
+    classrooms. The hardware decision came first; the instructional plan was
+    still being worked out as the boxes arrived.
+  sources:
+    - label: "MPR News"
+      url: "https://www.mprnews.org/story/2014/08/13/st-paul-schools-ipads"
 
 - id: first-ipads-2014
   date: 2014-10
@@ -196,6 +213,42 @@
   sources:
     - label: "Sahan Journal"
       url: "https://sahanjournal.com/democracy-politics/st-paul-schools-referendum-2025/"
+
+- id: yuen-distraction-2025
+  date: 2025-11
+  dateDisplay: "November 2025"
+  title: "'The classroom distraction no one wants to talk about'"
+  category: context
+  body: >
+    As phone bans spread, the Star Tribune's Laura Yuen turns to the device
+    schools hand out themselves: districts "took phones out of classrooms and
+    handed kids something just as addictive." The column cites research finding
+    sixth-graders average 2 hours 24 minutes of in-school screen time per day —
+    more than a third of instructional time.
+  sources:
+    - label: "Star Tribune (Yuen)"
+      url: "https://www.startribune.com/yuen-the-classroom-distraction-no-one-wants-to-talk-about/601487161"
+
+- id: walled-garden-2026
+  date: 2026-06
+  dateDisplay: "June 2026 (state of play)"
+  title: "What's on the iPad today: the walled garden"
+  category: devices
+  body: >
+    A dated baseline for tracking future changes. SPPS curates a "Self Service"
+    catalog of 400+ apps reviewed for content, privacy, and security; the Apple
+    App Store, FaceTime, iMessage, personal email, social media (Facebook,
+    Snapchat, TikTok), and the games, gambling, and adult-content categories are
+    blocked at school and at home. Notably, YouTube remains accessible — only
+    YouTube Shorts and individually flagged videos are blocked — in contrast to
+    districts like Los Angeles that block it entirely.
+  sources:
+    - label: "SPPS Technology Services"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+    - label: "SPPS App & Website Review"
+      url: "https://www.spps.org/about/departments/infinite-campus/app-website-review"
+    - label: "SPPS iPad Help (filtering details)"
+      url: "https://eastern.spps.org/ipad-help"
 
 - id: mn-ban-bill-2026
   date: 2026-02

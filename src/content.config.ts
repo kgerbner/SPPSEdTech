@@ -66,4 +66,17 @@ const policyQa = defineCollection({
   }),
 });
 
-export const collections = { timeline, districts, resources, policyQa };
+const apps = defineCollection({
+  loader: file('src/data/apps.yaml', {
+    parser: (text) => parse(text).map((a: { name: string }) => ({ id: a.name, ...a })),
+  }),
+  schema: z.object({
+    name: z.string(),
+    status: z.enum(['allowed', 'limited', 'blocked', 'parent-tool']),
+    note: z.string(),
+    aliases: z.array(z.coerce.string()).optional(),
+    sources: z.array(source).min(1, 'every app entry needs an official source'),
+  }),
+});
+
+export const collections = { timeline, districts, resources, policyQa, apps };

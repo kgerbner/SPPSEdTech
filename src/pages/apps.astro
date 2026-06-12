@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SourceList from '../components/SourceList.astro';
+import { getCollection } from 'astro:content';
+
+const statusOrder = ['blocked', 'limited', 'allowed', 'parent-tool'];
+const apps = (await getCollection('apps')).sort(
+  (a, b) =>
+    statusOrder.indexOf(a.data.status) - statusOrder.indexOf(b.data.status) ||
+    a.data.name.localeCompare(b.data.name)
+);
+
+const statusMeta: Record<string, { label: string; chip: string }> = {
+  allowed: { label: 'Allowed', chip: 'Allowed' },
+  limited: { label: 'Allowed with limits', chip: 'Limited' },
+  blocked: { label: 'Blocked', chip: 'Blocked' },
+  'parent-tool': { label: 'Parent tool', chip: 'Parent tools' },
+};
+
+const concerns = [
+  {
+    value: 'distraction',
+    label: 'Distraction from learning',
+    letter:
+      'it is a significant distraction from learning. Game-like rewards and entertainment features compete directly with instruction',
+  },
+  {
+    value: 'age',
+    label: 'Not age-appropriate',
+    letter: 'its content is not appropriate for my child’s age and grade level',
+  },
+  {
+    value: 'privacy',
+    label: 'Data privacy',
+    letter:
+      'I have concerns about the student data it collects and shares, and I have not seen a public data-sharing agreement covering it',
+  },
+  {
+    value: 'other',
+    label: 'Something else (describe below)',
+    letter: '',
+  },
+];
+---
+
+<BaseLayout
+  title="What's on the iPad"
+  description="Explore which apps and programs are allowed, limited, or blocked on SPPS student iPads — and how to request that an app be blocked or reviewed."
+>
+  <h1>What's on the iPad</h1>
+  <p class="lede">
+    Every SPPS student iPad runs inside a district-managed "walled garden."
+    Search below to see what's allowed, what's limited, and what's blocked —
+    every status linked to the district page that says so.
+  </p>
+
+  <div class="card explorer">
+    <input
+      id="app-search"
+      type="search"
+      placeholder="Search an app or program… e.g., YouTube, Roblox, Snapchat"
+      aria-label="Search apps and programs"
+    />
+    <div class="status-filters" role="group" aria-label="Filter by status" hidden>
+      <button type="button" data-status="all" aria-pressed="true">All</button>
+      {statusOrder.map((s) => (
+        <button type="button" data-status={s} aria-pressed="false">{statusMeta[s].chip}</button>
+      ))}
+    </div>
+
+    <ul class="app-list">
+      {apps.map((a) => (
+        <li
+          class="app"
+          data-status={a.data.status}
+          data-search={`${a.data.name} ${(a.data.aliases ?? []).join(' ')}`.toLowerCase()}
+        >
+          <div class="app-head">
+            <span class={`badge badge-${a.data.status}`}>{statusMeta[a.data.status].label}</span>
+            <h3>{a.data.name}</h3>
+          </div>
+          <p class="app-note">{a.data.note}</p>
+          <SourceList sources={a.data.sources} />
+        </li>
+      ))}
+    </ul>
+    <p class="empty" hidden>
+      Nothing here by that name. If it's not in the district's official
+      <a href="https://www.spps.org/about/departments/infinite-campus/app-website-review">Approved App List</a>,
+      students can't install it — the App Store itself is blocked.
+    </p>
+  </div>
+
+  <div class="note">
+    <p>
+      <strong>The authoritative list lives with the district.</strong> This
+      explorer covers what parents ask about most; the complete, current
+      Approved App List and the approval process are on the
+      <a href="https://www.spps.org/about/departments/infinite-campus/app-website-review">SPPS App &amp; Website Review page</a>.
+      There is no public changelog of how the lists have changed over time — a
+      <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/records-request/`}>records request</a>
+      is the way to get that history.
+    </p>
+  </div>
+
+  <h2>Request that an app be blocked (or reviewed)</h2>
+  <p>
+    This is a <strong>different process from a records request</strong> — there's
+    no statute behind it. It's an operational request to SPPS Technology
+    Services, which says blocks and unblocks can be requested "at any time."
+    Three routes, fastest first:
+  </p>
+  <ol class="routes">
+    <li>
+      <strong>At home, do it yourself today:</strong>
+      <a href="https://www.spps.org/about/departments/technology-services/students-and-families/securely-home">Securly Home</a>
+      lets any SPPS parent block specific websites, pause internet, or schedule
+      offline time on the school iPad — no district approval needed.
+    </li>
+    <li>
+      <strong>Districtwide block/review:</strong> submit the request below through the
+      <a href="https://www.spps.org/ipadhelp">iPad, Internet and App Support page</a>
+      (contact form / service ticket), or hand it to your school's field
+      technician or library media specialist.
+    </li>
+    <li>
+      <strong>If it's about classroom use</strong> (an app assigned during
+      instruction), raise it with the teacher and principal — app assignment is
+      a building-level instructional decision.
+    </li>
+  </ol>
+
+  <div class="card builder">
+    <div class="field">
+      <label for="bk-app">App, program, or website</label>
+      <input id="bk-app" type="text" placeholder="e.g., YouTube Shorts workarounds, a specific game site…" />
+    </div>
+    <div class="field">
+      <label for="bk-concern">Main concern</label>
+      <select id="bk-concern">
+        {concerns.map((c) => (
+          <option value={c.value} data-letter={c.letter}>{c.label}</option>
+        ))}
+      </select>
+    </div>
+    <div class="field" id="bk-custom-wrap" hidden>
+      <label for="bk-custom">Describe your concern</label>
+      <textarea id="bk-custom" rows="2"></textarea>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="bk-school">Your child's school (optional)</label>
+        <input id="bk-school" type="text" placeholder="e.g., Highland Park Middle School" />
+      </div>
+      <div class="field">
+        <label for="bk-name">Your name (optional)</label>
+        <input id="bk-name" type="text" />
+      </div>
+    </div>
+    <label class="out-label" for="bk-output">Your request</label>
+    <textarea id="bk-output" rows="13" readonly></textarea>
+    <button type="button" id="bk-copy">Copy request</button>
+    <span id="bk-copied" class="copied" hidden>Copied ✓</span>
+    <p class="builder-fine">
+      Paste it into the <a href="https://www.spps.org/ipadhelp">SPPS iPad support contact form</a>.
+      If you don't hear back in two weeks, follow up — and consider raising it
+      with your school's site council, which sets building-level procedures.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  // Explorer: text search + status filter (progressive enhancement).
+  const search = document.getElementById('app-search') as HTMLInputElement;
+  const filterBar = document.querySelector('.status-filters') as HTMLElement;
+  const buttons = filterBar.querySelectorAll<HTMLButtonElement>('[data-status]');
+  const rows = document.querySelectorAll<HTMLElement>('.app');
+  const empty = document.querySelector('.empty') as HTMLElement;
+  filterBar.hidden = false;
+  let activeStatus = 'all';
+
+  function applyFilters() {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    rows.forEach((row) => {
+      const matchesText = !q || (row.dataset.search || '').includes(q);
+      const matchesStatus = activeStatus === 'all' || row.dataset.status === activeStatus;
+      const show = matchesText && matchesStatus;
+      row.hidden = !show;
+      if (show) shown++;
+    });
+    empty.hidden = shown > 0;
+  }
+
+  search.addEventListener('input', applyFilters);
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeStatus = btn.dataset.status || 'all';
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      applyFilters();
+    });
+  });
+
+  // Block-request builder.
+  const appIn = document.getElementById('bk-app') as HTMLInputElement;
+  const concernSel = document.getElementById('bk-concern') as HTMLSelectElement;
+  const customWrap = document.getElementById('bk-custom-wrap') as HTMLElement;
+  const customTa = document.getElementById('bk-custom') as HTMLTextAreaElement;
+  const schoolIn = document.getElementById('bk-school') as HTMLInputElement;
+  const nameIn = document.getElementById('bk-name') as HTMLInputElement;
+  const out = document.getElementById('bk-output') as HTMLTextAreaElement;
+
+  function buildRequest() {
+    customWrap.hidden = concernSel.value !== 'other';
+    const app = appIn.value.trim() || '[app/program/website]';
+    const school = schoolIn.value.trim();
+    const name = nameIn.value.trim();
+    const reason =
+      concernSel.value === 'other'
+        ? customTa.value.trim() || '[describe your concern]'
+        : concernSel.selectedOptions[0].dataset.letter;
+    out.value = `To SPPS Technology Services,
+
+I am the parent/guardian of a student${school ? ` at ${school}` : ''} with a district-issued iPad. I am writing to request that ${app} be blocked on student devices — or, if a districtwide block is not appropriate, that it be referred to the App & Website Review process for re-evaluation.
+
+My concern: ${reason}.
+
+I understand the district's iPad Help pages say families may request that websites or apps be blocked at any time. Could you confirm receipt of this request and let me know (1) whether ${app} is currently on the approved list, (2) what review it has received, and (3) the outcome of this request once decided?
+
+Thank you for your work keeping student devices focused on learning.
+
+${name || '[Your name]'}`;
+  }
+
+  ['input', 'change'].forEach((ev) => {
+    [appIn, concernSel, customTa, schoolIn, nameIn].forEach((el) => el.addEventListener(ev, buildRequest));
+  });
+  buildRequest();
+
+  const copyBtn = document.getElementById('bk-copy') as HTMLButtonElement;
+  const copied = document.getElementById('bk-copied') as HTMLElement;
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(out.value);
+    } catch {
+      out.select();
+      document.execCommand('copy');
+    }
+    copied.hidden = false;
+    setTimeout(() => (copied.hidden = true), 2000);
+  });
+</script>
+
+<style>
+  #app-search {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: 99px;
+    padding: 0.65rem 1.2rem;
+  }
+  #app-search:focus { outline: none; border-color: var(--teal); }
+  .status-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .status-filters button {
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 99px;
+    padding: 0.25rem 0.9rem;
+    cursor: pointer;
+  }
+  .status-filters button:hover { border-color: var(--teal); color: var(--teal); }
+  .status-filters button[aria-pressed='true'] {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
+  .app-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .app {
+    border-top: 1px solid var(--line);
+    padding: 1rem 0;
+  }
+  .app-head {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .app-head h3 { margin: 0; }
+  .badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    border-radius: 99px;
+    padding: 0.15rem 0.7rem;
+  }
+  .badge-allowed { background: var(--teal); }
+  .badge-limited { background: var(--gold); }
+  .badge-blocked { background: #b34a36; }
+  .badge-parent-tool { background: #3a7ca5; }
+  .app-note { margin: 0.4rem 0 0; }
+  .empty { color: var(--ink-soft); font-style: italic; }
+
+  .routes li { margin: 0.6rem 0; }
+
+  .builder .field { margin-bottom: 1rem; }
+  .builder label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .builder .row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .builder .row .field { flex: 1 1 12rem; }
+  .builder select,
+  .builder input,
+  .builder textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    padding: 0.5rem 0.8rem;
+  }
+  .builder select:focus,
+  .builder input:focus,
+  .builder textarea:focus { outline: none; border-color: var(--teal); }
+  .out-label { margin-top: 1.4rem; }
+  #bk-output { font-size: 0.92rem; line-height: 1.5; background: #fffdf8; }
+  #bk-copy {
+    margin-top: 0.8rem;
+    font: inherit;
+    font-weight: 700;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    padding: 0.55rem 1.5rem;
+    cursor: pointer;
+  }
+  #bk-copy:hover { background: var(--teal-dark); }
+  .copied { margin-left: 0.7rem; color: var(--teal-dark); font-weight: 600; }
+  .builder-fine { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+</style>
