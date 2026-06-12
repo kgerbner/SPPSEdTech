@@ -53,22 +53,4 @@ const resources = defineCollection({
   }),
 });
 
-const involvement = defineCollection({
-  loader: file('src/data/involvement.yaml', {
-    parser: (text) => parse(text).map((g: { audience: string }) => ({ id: g.audience, ...g })),
-  }),
-  schema: z.object({
-    audience: z.enum(['everyone', 'parents', 'teachers']),
-    heading: z.string(),
-    items: z.array(
-      z.object({
-        title: z.string(),
-        how: z.string(),
-        url: z.string().url().optional(),
-        linkLabel: z.string().optional(),
-      })
-    ),
-  }),
-});
-
-export const collections = { timeline, districts, resources, involvement };
+export const collections = { timeline, districts, resources };

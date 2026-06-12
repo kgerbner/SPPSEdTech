@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DistrictCard from '../components/DistrictCard.astro';
 import { getCollection } from 'astro:content';
-import { href } from '../utils';
 
 const districts = await getCollection('districts');
 ---
@@ -47,12 +46,6 @@ const districts = await getCollection('districts');
     the beginning, and what fills the reclaimed attention matters just as much.
     That's why the question for SPPS isn't only "where are the phones?" but
     "what is the iPad for?"
-  </p>
-
-  <p>
-    Want to see how these policies came about? In nearly every case, it started
-    with parents and teachers asking their board for an evidence review.
-    <a href={href('/get-involved/')}>Here's how to do that in Saint Paul.</a>
   </p>
 </BaseLayout>
 

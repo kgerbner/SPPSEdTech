@@ -22,8 +22,8 @@
   --cat-context: #8a8f84;
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --measure: 44rem;
-  --wide: 64rem;
+  --measure: 58rem;
+  --wide: 84rem;
 }
 
 * { box-sizing: border-box; }

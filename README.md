@@ -2,8 +2,8 @@
 
 An independent, parent-run website about the role of technology in Saint Paul
 Public Schools: the history of how screens arrived in every classroom, what
-current district policy and Minnesota law actually say, how SPPS compares to
-districts with stronger limits, and how families and teachers can get involved.
+current district policy and Minnesota law actually say, and how SPPS compares
+to districts with stronger limits.
 
 **Live site:** https://kgerbner.github.io/SPPSEdTech/
 
@@ -19,7 +19,6 @@ All of the site's facts live in four YAML files in `src/data/`:
 | `timeline.yaml` | The interactive timeline on the History page |
 | `districts.yaml` | The cards on the How SPPS Compares page |
 | `resources.yaml` | Books / research / articles / orgs on Learn More |
-| `involvement.yaml` | Action items on Get Involved |
 
 Each file starts with a `HOW TO EDIT` comment describing its fields. Two rules
 are enforced at build time: every timeline and district entry **must cite at
