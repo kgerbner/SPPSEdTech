@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { href } from '../utils';
+
+const cards = [
+  {
+    path: '/history/',
+    title: 'History of Technology in SPPS',
+    text: 'An interactive, sourced timeline: the 2012 levy, the 1:1 iPad pivot voters were told wouldn’t happen, the COVID screen surge, and the policies that finally followed.',
+  },
+  {
+    path: '/policy/',
+    title: 'Current Policy',
+    text: 'What state law requires, what SPPS policy actually says, what your school decides — and the decade-old program no policy covers. Monitored weekly for changes.',
+  },
+  {
+    path: '/compare/',
+    title: 'How SPPS Compares',
+    text: 'Los Angeles caps screen time on its own devices. Fresno pulled take-home laptops. Texas went bell-to-bell. Where does Saint Paul stand?',
+  },
+  {
+    path: '/get-involved/',
+    title: 'Get Involved',
+    text: 'Board meetings, public comment, site councils, the Legislature — concrete ways for parents, teachers, and neighbors to be heard.',
+  },
+  {
+    path: '/learn-more/',
+    title: 'Learn More',
+    text: 'The research, books, articles, and organizations — including the studies with mixed results, because evidence is the standard we’re asking for.',
+  },
+];
+---
+
+<BaseLayout
+  title="SPPS EdTech"
+  description="An independent resource for Saint Paul families and teachers: the history, policy, and evidence on technology in Saint Paul Public Schools classrooms."
+>
+  <h1>Technology in Saint Paul's classrooms deserves a closer look.</h1>
+  <p class="lede">
+    For over a decade, Saint Paul Public Schools has put a screen on every desk —
+    with little public evidence about what it does for learning. This site helps
+    families and teachers understand how we got here, what the rules are, and how
+    to ask for better.
+  </p>
+
+  <div class="thesis card">
+    <h2>Purposeful, not addictive</h2>
+    <p>
+      This is not an anti-technology site. Technology that serves a clear
+      pedagogical purpose — a documentary in history class, code in computer
+      science, assistive tools that open doors — belongs in school. Technology
+      designed to capture attention — streaks, autoplay, gamified rewards,
+      infinite feeds — competes with school, even when it ships on a
+      district-issued iPad.
+    </p>
+    <p>
+      The evidence is increasingly hard to ignore: device distraction measurably
+      lowers achievement, and heavy screen use tracks the decline in adolescent
+      mental health. SPPS took a step in 2025 by putting personal phones away.
+      But its own 1:1 program — a decade old and millions of dollars a year — has
+      never faced a public review against learning outcomes. We think it should.
+    </p>
+  </div>
+
+  <nav class="cards" aria-label="Site sections">
+    {cards.map((c) => (
+      <a class="card" href={href(c.path)}>
+        <h3>{c.title}</h3>
+        <p>{c.text}</p>
+        <span class="cta" aria-hidden="true">Explore →</span>
+      </a>
+    ))}
+  </nav>
+</BaseLayout>
+
+<style>
+  .thesis h2 { margin-top: 0; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .cards .card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease;
+  }
+  .cards .card:hover { border-color: var(--navy); }
+  .cards h3 { margin: 0 0 0.5rem; }
+  .cards p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); flex-grow: 1; }
+  .cta {
+    margin-top: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.9rem;
+  }
+  .cards .card:hover .cta { color: var(--amber); }
+</style>

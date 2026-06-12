@@ -1,0 +1,90 @@
+# How SPPS Compares — districts and states with stronger limits on
+# intrusive/addictive technology.
+#
+# HOW TO EDIT: each entry needs name, location, summary, and sources.
+# "highlights" is an optional bulleted list. Keep summaries factual and sourced.
+
+- name: "Los Angeles Unified School District"
+  location: "Los Angeles, CA — 2nd largest U.S. district"
+  summary: >
+    The first major district to adopt a comprehensive screen-time policy covering
+    its own school-issued devices, not just student phones. LAUSD also learned the
+    hard way: its $1.3 billion iPad program collapsed in 2013–15, a story that
+    closely parallels the SPPS iPad rollout of the same era.
+  highlights:
+    - "No school-issued devices for students before 2nd grade"
+    - "Daily and weekly screen-time limits in every grade (effective fall 2026)"
+    - "YouTube blocked on student devices; no devices at elementary/middle school lunch and recess"
+    - "Separate bell-to-bell phone ban in place since February 2025"
+  sources:
+    - label: "NBC News"
+      url: "https://www.nbcnews.com/tech/tech-news/la-parents-kids-school-issued-ipad-chromebook-los-angeles-rcna245624"
+    - label: "KPCC: LAUSD iPad program timeline"
+      url: "https://projects.scpr.org/timelines/lausd-ipads/"
+
+- name: "Fresno Unified School District"
+  location: "Fresno, CA"
+  summary: >
+    Reversing course on elementary 1:1 computing: take-home laptops for elementary
+    students are being pulled back to classroom-only use, with the district
+    refocusing on supervised, purposeful in-class technology rather than
+    around-the-clock device access.
+  sources:
+    - label: "EdSource"
+      url: "https://edsource.org/2026/fresno-unified-elementary-students-must-return-laptops-as-district-shifts-focus-to-in-class-use/751213"
+
+- name: "Pennsylvania districts (e.g., Arlington SD)"
+  location: "Pennsylvania"
+  summary: >
+    A growing group of Pennsylvania districts is removing laptops from younger
+    students' classrooms and buying paper textbooks again, citing screen-time
+    backlash from parents and teachers and thin evidence that the devices improved
+    learning.
+  sources:
+    - label: "Spotlight PA"
+      url: "https://www.spotlightpa.org/news/2026/05/schools-remove-classroom-laptops-screen-time-backlash-education/"
+
+- name: "Texas (statewide)"
+  location: "Texas — all public schools"
+  summary: >
+    A statewide bell-to-bell ban on personal communication devices took effect in
+    fall 2025, covering the entire school day, not just class time. Texas joined a
+    wave of states — including New York and Virginia — that decided this issue is
+    too important to leave to school-by-school discretion.
+  sources:
+    - label: "Ballotpedia: State policies on cellphone use in K-12 schools"
+      url: "https://ballotpedia.org/State_policies_on_cellphone_use_in_K-12_public_schools"
+
+- name: "Florida (statewide, earliest adopter)"
+  location: "Florida — all public schools"
+  summary: >
+    Florida banned phones during class time in 2023, giving researchers the
+    longest track record to study. Early findings: districts with full-day bans
+    saw test-score gains of roughly 3.5 percentile points by the second year,
+    alongside fewer disciplinary incidents — evidence that the benefits compound
+    over time.
+  sources:
+    - label: "The 74"
+      url: "https://www.the74million.org/article/florida-study-cellphone-bans-promote-academic-gains-after-a-year-or-so/"
+    - label: "K-12 Dive"
+      url: "https://www.k12dive.com/news/cellphone-ban-Florida-school-district-discipline-learning-attendance/819875/"
+
+- name: "Stillwater Area Public Schools"
+  location: "Stillwater, MN — metro-area neighbor"
+  summary: >
+    A near-peer Minnesota district with an explicit "Phone-Free Schools" policy —
+    showing that stronger, clearly-communicated limits are achievable under the
+    same Minnesota law SPPS operates under.
+  sources:
+    - label: "Stillwater Area Public Schools"
+      url: "https://www.stillwaterschools.org/our-district/school-board/district-policies/phone-free-policy"
+
+- name: "Mounds View Public Schools"
+  location: "Twin Cities metro, MN"
+  summary: >
+    Another Twin Cities district that moved earlier and further than SPPS on
+    phone-free school days, providing a local comparison point for what
+    implementation looks like in practice.
+  sources:
+    - label: "Mounds View Public Schools"
+      url: "https://www.mvpschools.org/about/news/cellphones"

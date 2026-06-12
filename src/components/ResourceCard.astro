@@ -1,0 +1,33 @@
+---
+interface Props {
+  item: {
+    title: string;
+    author: string;
+    year: number;
+    url: string;
+    why: string;
+  };
+}
+const { item } = Astro.props;
+---
+
+<article class="resource">
+  <h3><a href={item.url} rel="noopener">{item.title}</a></h3>
+  <p class="byline">{item.author} · {item.year}</p>
+  <p class="why">{item.why}</p>
+</article>
+
+<style>
+  .resource {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .resource:last-child { border-bottom: none; }
+  h3 { margin: 0 0 0.15rem; font-size: 1.08rem; }
+  .byline {
+    margin: 0 0 0.4rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .why { margin: 0; }
+</style>

@@ -1,0 +1,103 @@
+---
+import SourceList from './SourceList.astro';
+
+interface Props {
+  entry: {
+    id: string;
+    dateDisplay: string;
+    title: string;
+    category: string;
+    body: string;
+    sources: { label: string; url: string }[];
+  };
+}
+
+const { entry } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  devices: 'Devices',
+  funding: 'Funding',
+  policy: 'SPPS Policy',
+  'state-law': 'State Law',
+  covid: 'COVID Era',
+  context: 'Context',
+};
+---
+
+<li id={entry.id} class="entry" data-category={entry.category}>
+  <div class="marker" aria-hidden="true"></div>
+  <article>
+    <p class="when">
+      <a class="anchor" href={`#${entry.id}`} aria-label={`Link to ${entry.title}`}>{entry.dateDisplay}</a>
+      <span class="tag" data-tag={entry.category}>{categoryLabels[entry.category] ?? entry.category}</span>
+    </p>
+    <h3>{entry.title}</h3>
+    <p class="body">{entry.body}</p>
+    <SourceList sources={entry.sources} />
+  </article>
+</li>
+
+<style>
+  .entry {
+    position: relative;
+    padding: 0 0 2.25rem 2rem;
+    scroll-margin-top: 5rem;
+  }
+  .entry::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.4rem;
+    bottom: -0.4rem;
+    width: 2px;
+    background: var(--line);
+  }
+  .entry:last-child::before { bottom: auto; height: 1rem; }
+  .marker {
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    background: var(--dot, var(--navy));
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--dot, var(--navy));
+  }
+  .entry[data-category='devices'] { --dot: var(--cat-devices); }
+  .entry[data-category='funding'] { --dot: var(--cat-funding); }
+  .entry[data-category='policy'] { --dot: var(--cat-policy); }
+  .entry[data-category='state-law'] { --dot: var(--cat-state-law); }
+  .entry[data-category='covid'] { --dot: var(--cat-covid); }
+  .entry[data-category='context'] { --dot: var(--cat-context); }
+
+  .when {
+    margin: 0 0 0.2rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .anchor {
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+  }
+  .anchor:hover { color: var(--amber); }
+  .tag {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: #fff;
+    background: var(--dot, var(--navy));
+    border-radius: 99px;
+    padding: 0.1rem 0.6rem;
+  }
+  h3 { margin: 0 0 0.4rem; }
+  .body { margin: 0; }
+</style>

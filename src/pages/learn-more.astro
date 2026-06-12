@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import { getCollection } from 'astro:content';
+
+const order = ['research', 'books', 'articles', 'organizations'];
+const headings: Record<string, { title: string; blurb: string }> = {
+  research: {
+    title: 'The research',
+    blurb:
+      'Start here. The most rigorous, most recent evidence on screens, devices, and learning — including the studies with mixed results.',
+  },
+  books: {
+    title: 'Books',
+    blurb: 'Deeper treatments of attention, childhood, and the design of the technology in question.',
+  },
+  articles: {
+    title: 'Articles',
+    blurb: 'Shorter reads, including the local reporting that documents the SPPS story.',
+  },
+  organizations: {
+    title: 'Organizations',
+    blurb: 'Groups doing ongoing work — several with Minnesota chapters or roots.',
+  },
+};
+
+const sections = (await getCollection('resources')).sort(
+  (a, b) => order.indexOf(a.data.section) - order.indexOf(b.data.section)
+);
+---
+
+<BaseLayout
+  title="Learn More"
+  description="Curated research, books, articles, and organizations on digital wellness and the impact of screens and technology on education."
+>
+  <h1>Learn More</h1>
+  <p class="lede">
+    A reading list for thinking critically about technology in school — chosen to
+    inform, not to alarm. It includes the strongest evidence on every side,
+    because that's the standard we're asking the district to meet.
+  </p>
+
+  {sections.map((s) => (
+    <section>
+      <h2>{headings[s.data.section].title}</h2>
+      <p>{headings[s.data.section].blurb}</p>
+      <div class="list">
+        {s.data.items.map((item) => (
+          <ResourceCard item={item} />
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <div class="note">
+    <p>
+      Know a source that belongs here?
+      <a href="https://github.com/kgerbner/SPPSEdTech/issues">Suggest it</a> — additions
+      need a working link and a sentence on why it helps Saint Paul families.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .list {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.25rem 1.5rem;
+  }
+</style>

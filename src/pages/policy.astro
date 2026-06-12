@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { href } from '../utils';
+
+// Update this date whenever the policy facts on this page are re-verified
+// (the weekly policy-watch workflow opens a PR when source pages change).
+const lastVerified = 'June 2026';
+---
+
+<BaseLayout
+  title="Current Policy"
+  description="What Saint Paul Public Schools' technology and device policy actually says, how Minnesota state law shapes it, and where the gaps are."
+>
+  <h1>Current Policy</h1>
+  <p class="lede">
+    What the rules actually say — at the State Capitol, at 360 Colborne, and in
+    your student's school building.
+  </p>
+  <p class="updated">Last verified: {lastVerified}. This site's automated monitor checks the source pages weekly and flags changes.</p>
+
+  <h2>How the layers fit together</h2>
+  <p>
+    School technology rules in Minnesota are set at three levels, and knowing
+    which level controls what is the key to changing any of it:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Level</th><th>Who decides</th><th>What it controls today</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>State law</strong></td>
+        <td>Minnesota Legislature</td>
+        <td>
+          Sets the floor. Minn. Stat. § 121A.73 required every district to adopt
+          a cell phone policy by March 15, 2025 — but (so far) lets each district
+          decide what the policy says.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>District policy</strong></td>
+        <td>SPPS Board of Education</td>
+        <td>
+          The "Students and Personal Electronic Devices" policy (adopted February
+          2025): phones off and out of sight during the school day, districtwide.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>School procedures</strong></td>
+        <td>Each principal &amp; site council</td>
+        <td>
+          Implementation details — lunch and passing time, storage, enforcement,
+          and any high-school exceptions. This is why rules differ between
+          buildings.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    The practical takeaway: if you want stronger rules at your child's school,
+    the principal and site council can act tomorrow. If you want consistency
+    across Saint Paul, that's the school board. If you want consistency across
+    Minnesota, that's the Legislature.
+  </p>
+
+  <h2>What Minnesota law requires</h2>
+  <p>
+    <a href="https://www.revisor.mn.gov/statutes/cite/121A.73">Minn. Stat. § 121A.73</a>
+    made Minnesota one of the states that mandates a local policy without
+    dictating its content. That may be about to change: <strong>SF 508 / HF 2516</strong>,
+    pending in the 2026 session, would ban phones and smartwatches entirely for
+    grades K–8 and in classrooms for grades 9–12, statewide, starting in 2026–27.
+    Twenty-six states already require districts to ban or limit phones — 22 of
+    those laws passed in 2025 alone. Minnesota currently mandates less than most
+    of its neighbors.
+  </p>
+
+  <h2>What SPPS policy says</h2>
+  <p>
+    The board-approved policy, in effect since fall 2025, requires personal
+    electronic devices to be <strong>turned off and out of sight</strong> during
+    the school day — left at home, in a locker, or off in a backpack — with
+    exceptions for documented medical monitoring and emergencies. Each school
+    publishes its own implementation procedures. The board's stated rationale
+    when it passed the policy: academic performance and student mental health.
+  </p>
+  <div class="note">
+    <p>
+      <strong>What the policy doesn't cover.</strong> The 2025 policy governs
+      students' <em>personal</em> devices. It says nothing about the
+      district-issued iPad on every desk: which apps are on it, how much of the
+      school day is spent on it, what data it collects, or whether its use is
+      evaluated against learning outcomes. A decade after the 1:1 rollout, there
+      is no public, recurring review of whether the program helps children learn.
+      That gap — not the phone policy — is where SPPS most lags the districts on
+      our <a href={href('/compare/')}>comparison page</a>.
+    </p>
+  </div>
+
+  <h2>Primary sources</h2>
+  <ul>
+    <li>
+      <a href="https://www.spps.org/about/board-of-education/board-policies-procedures">SPPS Board Policies &amp; Procedures</a> — the district's official policy library
+    </li>
+    <li>
+      <a href="https://www.spps.org/families/students-rights-responsibilities">SPPS Rights &amp; Responsibilities handbook</a> — how the rules are communicated to families
+    </li>
+    <li>
+      <a href="https://www.revisor.mn.gov/statutes/cite/121A.73">Minn. Stat. § 121A.73</a> — the state cell phone policy mandate
+    </li>
+    <li>
+      <a href="https://www.kare11.com/article/news/education/st-paul-schools-districtwide-cell-phone-ban/89-47888bb0-e252-4745-8d33-ab5d6dcc6366">KARE 11: SPPS adopts districtwide policy</a> and
+      <a href="https://www.minnpost.com/education/2025/12/turned-off-and-put-away-at-st-pauls-central-high-students-have-gone-cell-phone-free-and-survived-minnesota-policy/">MinnPost: a semester of phone-free Central High</a> — independent coverage
+    </li>
+  </ul>
+
+  <h2>How this page stays current</h2>
+  <p>
+    A weekly automated job fetches the SPPS policy pages and the Minnesota
+    statute above, compares them to stored snapshots, and opens an alert when
+    anything changes — so updates here follow district and state changes within
+    days, not years. The monitoring code is
+    <a href="https://github.com/kgerbner/SPPSEdTech">public</a>.
+  </p>
+</BaseLayout>

@@ -1,0 +1,179 @@
+# History of Technology in SPPS — timeline entries
+#
+# HOW TO EDIT THIS FILE
+# - Each entry starts with "- id:". Keep ids short, lowercase, hyphenated, and unique.
+# - "date" is used for sorting (YYYY-MM). "dateDisplay" is what visitors see.
+# - "category" must be one of: devices, funding, policy, state-law, covid, context
+# - "body" supports multiple paragraphs: keep the ">" and indent the text.
+# - Every entry needs at least one source (label + url).
+# After editing, the site rebuilds automatically when changes are pushed to GitHub.
+
+- id: referendum-2012
+  date: 2012-11
+  dateDisplay: "November 2012"
+  title: "Voters approve the 'Personalized Learning Through Technology' levy"
+  category: funding
+  body: >
+    Saint Paul voters approve a technology referendum of roughly $9 million per year.
+    During the campaign, the district described investments in infrastructure and
+    personalized learning — voters were told the plan did not include giving a
+    device to every student.
+  sources:
+    - label: "Star Tribune"
+      url: "https://www.startribune.com/st-paul-schools-bring-ipads-into-the-classroom/305581621"
+
+- id: ipad-pivot-2014
+  date: 2014-06
+  dateDisplay: "Spring 2014"
+  title: "District pivots to 1:1 iPads"
+  category: devices
+  body: >
+    Less than two years after the referendum, SPPS leadership redirects the levy
+    toward a one-to-one iPad initiative — described in later reporting as "a
+    device-laden plan that voters had been told would not be pursued." The school
+    board approves a $5.72 million annual lease with Apple, rising to roughly
+    $8 million per year as the program expands to all schools.
+  sources:
+    - label: "Star Tribune: St. Paul schools embrace iPad era"
+      url: "https://www.startribune.com/aug-23-st-paul-schools-embrace-ipad-era/272512171/"
+
+- id: first-ipads-2014
+  date: 2014-10
+  dateDisplay: "October 2014"
+  title: "First student iPads handed out"
+  category: devices
+  body: >
+    The first iPads reach students' hands. Over the following two school years
+    the rollout expands to all SPPS schools — one of the largest 1:1 tablet
+    deployments in Minnesota.
+  sources:
+    - label: "Star Tribune"
+      url: "https://www.startribune.com/aug-23-st-paul-schools-embrace-ipad-era/272512171/"
+
+- id: lausd-context-2013
+  date: 2013-08
+  dateDisplay: "2013–2015 (national context)"
+  title: "Los Angeles' $1.3 billion iPad program collapses"
+  category: context
+  body: >
+    As SPPS planned its iPad rollout, the nation's second-largest district was
+    living the cautionary tale: LAUSD's iPad-for-every-student program collapsed
+    amid security workarounds by students, unusable curriculum software, and an
+    FBI investigation into the procurement. The superintendent resigned and the
+    district sought a refund from Apple. The episode became the textbook example
+    of buying devices before defining the pedagogy.
+  sources:
+    - label: "KPCC/SCPR: LAUSD iPad timeline"
+      url: "https://projects.scpr.org/timelines/lausd-ipads/"
+
+- id: covid-2020
+  date: 2020-03
+  dateDisplay: "March 2020"
+  title: "COVID-19 makes the iPad the classroom"
+  category: covid
+  body: >
+    Distance learning turns every SPPS student into a full-time screen user
+    overnight. The district distributes tens of thousands of iPads and Wi-Fi
+    hotspots. Screens shift from a supplement to the primary medium of school —
+    and many pandemic-era habits (assignments, communication, and curriculum
+    delivered through the device) persist after classrooms reopen.
+  sources:
+    - label: "SPPS Technology Services: Students & Families"
+      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+
+- id: unesco-2023
+  date: 2023-07
+  dateDisplay: "July 2023 (research context)"
+  title: "UNESCO calls for technology 'on our terms' in classrooms"
+  category: context
+  body: >
+    UNESCO's Global Education Monitoring Report, "Technology in education: A tool
+    on whose terms?", finds little robust evidence that classroom technology
+    improves learning at scale, and warns that much of the evidence that exists is
+    funded by the companies selling the products. It urges schools to allow
+    technology only where it demonstrably supports learning — and notes that mere
+    proximity to a mobile device is associated with distraction and lower
+    performance.
+  sources:
+    - label: "UNESCO GEM Report 2023"
+      url: "https://www.unesco.org/gem-report/en/technology"
+
+- id: mn-law-2024
+  date: 2024-05
+  dateDisplay: "May 2024"
+  title: "Minnesota requires every district to adopt a cell phone policy"
+  category: state-law
+  body: >
+    The Legislature enacts Minn. Stat. § 121A.73, requiring every Minnesota school
+    district to adopt a policy on students' personal cell phone possession and use
+    by March 15, 2025. The state sets the mandate but — at this point — leaves the
+    content of the policy to each local district. This is the law that pushed SPPS
+    to act.
+  sources:
+    - label: "Minn. Stat. § 121A.73"
+      url: "https://www.revisor.mn.gov/statutes/cite/121A.73"
+    - label: "Minnesota Reformer"
+      url: "https://minnesotareformer.com/2025/02/24/school-cellphone-bans-spread-across-states-though-enforcement-could-be-tricky/"
+
+- id: spps-policy-2025
+  date: 2025-02
+  dateDisplay: "February 2025"
+  title: "SPPS board approves the 'Students and Personal Electronic Devices' policy"
+  category: policy
+  body: >
+    The school board adopts a districtwide policy: personal devices must be turned
+    off and out of sight during the school day — left at home, in a locker, or off
+    in a backpack — with exceptions for documented medical needs and emergencies.
+    Each school sets its own implementation procedures, which is why rules differ
+    between buildings. The board's stated rationale: protecting academic
+    performance and student mental health.
+  sources:
+    - label: "KARE 11"
+      url: "https://www.kare11.com/article/news/education/st-paul-schools-districtwide-cell-phone-ban/89-47888bb0-e252-4745-8d33-ab5d6dcc6366"
+    - label: "Bring Me The News"
+      url: "https://bringmethenews.com/minnesota-news/st-paul-public-schools-board-approves-cellphone-electronics-ban"
+
+- id: policy-effective-2025
+  date: 2025-09
+  dateDisplay: "Fall 2025"
+  title: "Phone policy takes effect in SPPS schools"
+  category: policy
+  body: >
+    The new policy takes effect at the start of the 2025–26 school year. Note what
+    it covers — and what it doesn't: the policy addresses students' personal
+    phones, but says nothing about the district-issued iPads on every desk, the
+    apps on them, or how much of the school day is spent on screens.
+  sources:
+    - label: "Park Bugle"
+      url: "https://parkbugle.org/166439/school/cell-phone-policy-in-place-for-new-school-year/"
+
+- id: central-phone-free-2025
+  date: 2025-12
+  dateDisplay: "December 2025"
+  title: "Central High goes phone-free — 'and survived'"
+  category: policy
+  body: >
+    MinnPost reports from St. Paul Central High School after a semester of
+    phone-free school days: calmer hallways, more conversation, and students who —
+    after initial protest — largely adjusted. Early evidence that stronger limits
+    are workable in SPPS's largest high school.
+  sources:
+    - label: "MinnPost"
+      url: "https://www.minnpost.com/education/2025/12/turned-off-and-put-away-at-st-pauls-central-high-students-have-gone-cell-phone-free-and-survived-minnesota-policy/"
+
+- id: mn-ban-bill-2026
+  date: 2026-02
+  dateDisplay: "2026 legislative session"
+  title: "Statewide bell-to-bell ban proposed (pending)"
+  category: state-law
+  body: >
+    SF 508 / HF 2516 would go further than the 2024 law: a complete ban on phones
+    and smartwatches for grades K–8 and a classroom ban for grades 9–12, statewide,
+    starting in 2026–27. As of spring 2026 the proposal was folded into a larger
+    education policy bill and remains pending — if it passes, state law would
+    override SPPS's school-by-school discretion.
+  sources:
+    - label: "Star Tribune"
+      url: "https://www.startribune.com/minnesota-school-classroom-cell-phone-ban-proposal/601219912"
+    - label: "KAXE"
+      url: "https://www.kaxe.org/minnesota-news/2026-03-02/lawmakers-statewide-cellphone-ban-mn-schools"

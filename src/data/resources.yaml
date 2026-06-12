@@ -1,0 +1,164 @@
+# Learn More — books, articles, research, and organizations.
+#
+# HOW TO EDIT: entries are grouped by "section". Each item needs title, author
+# (or publisher), year, url, and a one-or-two sentence "why" written for parents
+# and teachers. Sections render in the order: books, research, articles, organizations.
+
+- section: books
+  items:
+    - title: "The Anxious Generation"
+      author: "Jonathan Haidt"
+      year: 2024
+      url: "https://www.anxiousgeneration.com/book"
+      why: >
+        The book that moved the national conversation: how the "great rewiring" of
+        childhood around smartphones and social media tracks the surge in teen
+        anxiety and depression — and what schools and parents can do, including
+        phone-free schools.
+    - title: "Stolen Focus"
+      author: "Johann Hari"
+      year: 2022
+      url: "https://stolenfocusbook.com/"
+      why: >
+        Why attention — the foundation of all learning — is collapsing, and why
+        that's a design choice of the attention economy rather than a personal
+        failing of our kids.
+    - title: "Screenwise: Helping Kids Thrive (and Survive) in Their Digital World"
+      author: "Devorah Heitner"
+      year: 2016
+      url: "https://devorahheitner.com/screenwise/"
+      why: >
+        The constructive counterweight: mentoring kids toward healthy technology
+        use rather than only restricting it. A good fit for this site's
+        "purposeful, not anti-tech" frame.
+    - title: "The Tech Exit: A Practical Guide to Freeing Kids and Teens from Smartphones"
+      author: "Clare Morell"
+      year: 2025
+      url: "https://www.penguinrandomhouse.com/books/759162/the-tech-exit-by-clare-morell/"
+      why: >
+        A recent, practical playbook for families who want to go beyond "limits"
+        — with concrete scripts for coordinating with other parents and with
+        schools.
+    - title: "The Shallows: What the Internet Is Doing to Our Brains"
+      author: "Nicholas Carr"
+      year: 2020
+      url: "https://www.wwnorton.com/books/9780393357820"
+      why: >
+        The earlier classic on how the medium itself reshapes deep reading and
+        sustained thought — the cognitive skills school exists to build.
+
+- section: research
+  items:
+    - title: "Technology in education: A tool on whose terms? (Global Education Monitoring Report)"
+      author: "UNESCO"
+      year: 2023
+      url: "https://www.unesco.org/gem-report/en/technology"
+      why: >
+        The most comprehensive global review: little robust evidence that edtech
+        improves learning at scale, much of the favorable evidence is
+        industry-funded, and technology should be admitted to classrooms only on
+        proof of benefit. Recommends banning phones where they disrupt learning.
+    - title: "PISA 2022 Results (Volume II): Learning During — and From — Disruption"
+      author: "OECD"
+      year: 2023
+      url: "https://www.oecd.org/en/publications/pisa-2022-results-volume-ii_a97db61c-en.html"
+      why: >
+        Across 80+ education systems: students distracted by digital devices in
+        math class scored significantly lower — equivalent to roughly three-quarters
+        of a year of learning — and even nearby classmates' phone use dragged
+        scores down.
+    - title: "Brain Drain: The Mere Presence of One's Own Smartphone Reduces Available Cognitive Capacity"
+      author: "Ward, Duke, Gneezy & Bos (Journal of the Association for Consumer Research)"
+      year: 2017
+      url: "https://www.journals.uchicago.edu/doi/10.1086/691462"
+      why: >
+        The landmark experiment behind "out of sight" policies: a silenced phone
+        face-down on the desk still measurably reduces working memory — the phone
+        has to be in another room (or locker) for attention to fully return.
+    - title: "Statement on increased screen use in schools"
+      author: "Karolinska Institutet researchers (Sweden)"
+      year: 2023
+      url: "https://www.regeringen.se/contentassets/8e7ad5c1c52d4d0a8043f7d0d6e2f222/karolinska-institutets-yttrande-om-nationell-digitaliseringsstrategi.pdf"
+      why: >
+        The expert statement that prompted Sweden — an early all-in digitalizer —
+        to reverse course and reinvest in paper textbooks: evidence shows children
+        learn more from physical books than screens, especially in early grades.
+    - title: "Florida's cellphone ban: academic gains after a year or so"
+      author: "The 74 (reporting on University of South Florida research)"
+      year: 2025
+      url: "https://www.the74million.org/article/florida-study-cellphone-bans-promote-academic-gains-after-a-year-or-so/"
+      why: >
+        The best U.S. natural experiment so far: full-day bans produced roughly
+        3.5-percentile-point test gains by year two, with larger effects for
+        struggling students.
+    - title: "Largest-ever study of school phone bans finds mixed results"
+      author: "NBC News (reporting on phone-pouch study)"
+      year: 2025
+      url: "https://www.nbcnews.com/tech/tech-news/largest-ever-study-school-cell-phone-bans-finds-mixed-results-rcna343761"
+      why: >
+        Included deliberately: in-class phone use plummeted (61% of students to
+        13%) but academic gains lagged in the first year. Honest takeaway —
+        removing phones is necessary but not sufficient; what fills the reclaimed
+        attention matters.
+
+- section: articles
+  items:
+    - title: "The Terrible Costs of a Phone-Based Childhood"
+      author: "Jonathan Haidt, The Atlantic"
+      year: 2024
+      url: "https://www.theatlantic.com/technology/archive/2024/03/teen-childhood-smartphone-use-mental-health-effects/677722/"
+      why: "The widely-shared essay version of The Anxious Generation's argument."
+    - title: "Get Phones Out of Schools Now"
+      author: "Jonathan Haidt, The Atlantic"
+      year: 2023
+      url: "https://www.theatlantic.com/ideas/archive/2023/06/ban-smartphones-phone-free-schools-social-media/674304/"
+      why: "The case for bell-to-bell phone-free schools, aimed at school leaders."
+    - title: "'Turned off and put away': St. Paul Central students have gone cell-phone free — and survived"
+      author: "MinnPost"
+      year: 2025
+      url: "https://www.minnpost.com/education/2025/12/turned-off-and-put-away-at-st-pauls-central-high-students-have-gone-cell-phone-free-and-survived-minnesota-policy/"
+      why: "What the policy actually looks like inside SPPS's largest high school."
+    - title: "St. Paul schools embrace iPad era"
+      author: "Star Tribune"
+      year: 2014
+      url: "https://www.startribune.com/aug-23-st-paul-schools-embrace-ipad-era/272512171/"
+      why: >
+        The history: how SPPS redirected a voter-approved levy into a 1:1 iPad
+        lease — useful context for asking what review the program has received
+        since.
+    - title: "Schools remove classroom laptops amid screen-time backlash"
+      author: "Spotlight PA"
+      year: 2026
+      url: "https://www.spotlightpa.org/news/2026/05/schools-remove-classroom-laptops-screen-time-backlash-education/"
+      why: "How districts elsewhere are rebalancing — including a return to paper textbooks."
+
+- section: organizations
+  items:
+    - title: "Everyschool"
+      author: "everyschool.org"
+      year: 2024
+      url: "https://www.everyschool.org/"
+      why: >
+        Built around exactly this site's question: a framework for evaluating
+        whether classroom technology is pedagogically purposeful, with toolkits
+        for parents raising the issue with their districts.
+    - title: "LiveMore ScreenLess"
+      author: "Minnesota-based nonprofit"
+      year: 2024
+      url: "https://livemorescreenless.org/"
+      why: "Minnesota's homegrown digital-wellness organization; works directly with schools and youth."
+    - title: "Smartphone Free Childhood US"
+      author: "Parent network"
+      year: 2024
+      url: "https://www.smartphonefreechildhood.org/"
+      why: "Parent-to-parent pacts to delay smartphones; local chapters coordinate by school and district."
+    - title: "Away For The Day"
+      author: "Screenagers / Tech-Savvy Parenting"
+      year: 2024
+      url: "https://www.awayfortheday.org/"
+      why: "Campaign and evidence base specifically for phones-away school policies, with advocacy materials."
+    - title: "Fairplay: Screen Time Action Network"
+      author: "Fairplay"
+      year: 2024
+      url: "https://fairplayforkids.org/"
+      why: "National advocacy network on childhood and the attention economy, including an edtech working group."

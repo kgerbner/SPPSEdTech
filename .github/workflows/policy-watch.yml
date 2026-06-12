@@ -1,0 +1,76 @@
+name: Policy watch
+
+on:
+  schedule:
+    # Mondays at 13:00 UTC (~8am Central)
+    - cron: '0 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: policy-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pdftotext (for PDF targets)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - name: Check monitored pages for changes
+        id: watch
+        run: python3 scripts/policy_watch.py
+
+      - name: Open pull request with the change
+        if: steps.watch.outputs.changed == 'true'
+        run: |
+          # Skip if a policy-watch PR is already open; its branch holds the
+          # newer baseline and this run's diff would just repeat it.
+          if gh pr list --state open --json headRefName --jq '.[].headRefName' | grep -q '^policy-watch/'; then
+            echo "An open policy-watch PR already exists; skipping."
+            exit 0
+          fi
+          BRANCH="policy-watch/$(date +%Y-%m-%d)"
+          git config user.name "policy-watch[bot]"
+          git config user.email "actions@github.com"
+          git checkout -b "$BRANCH"
+          git add policy-snapshots/
+          git commit -m "Policy watch: snapshot update for ${{ steps.watch.outputs.changed_slugs }}"
+          git push -u origin "$BRANCH"
+          gh pr create \
+            --title "Policy change detected: ${{ steps.watch.outputs.changed_slugs }}" \
+            --body-file policy-watch-report.md \
+            --base "${{ github.event.repository.default_branch }}"
+
+      - name: Persist failure counts (no policy change)
+        if: steps.watch.outputs.changed != 'true'
+        run: |
+          # Consecutive-failure tracking lives in policy-snapshots/.failures.json;
+          # commit it to the default branch so counts survive between weekly runs.
+          if ! git diff --quiet -- policy-snapshots/.failures.json 2>/dev/null || \
+             [ -n "$(git status --porcelain policy-snapshots/.failures.json)" ]; then
+            git config user.name "policy-watch[bot]"
+            git config user.email "actions@github.com"
+            git add policy-snapshots/.failures.json
+            git commit -m "Policy watch: update failure-count state"
+            git push
+          fi
+
+      - name: Alert if monitored pages are unreachable
+        if: steps.watch.outputs.unreachable == 'true'
+        run: |
+          TITLE="Policy watch: monitored page unreachable"
+          if gh issue list --state open --search "\"$TITLE\" in:title" --json number --jq length | grep -qv '^0$'; then
+            echo "An open unreachable-alert issue already exists; skipping."
+            exit 0
+          fi
+          gh issue create --title "$TITLE" --body-file policy-watch-unreachable.md

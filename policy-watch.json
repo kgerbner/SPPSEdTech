@@ -1,0 +1,28 @@
+{
+  "targets": [
+    {
+      "slug": "spps-board-policies",
+      "label": "SPPS Board Policies & Procedures index",
+      "url": "https://www.spps.org/about/board-of-education/board-policies-procedures",
+      "type": "html"
+    },
+    {
+      "slug": "spps-rights-responsibilities",
+      "label": "SPPS Rights & Responsibilities handbook page",
+      "url": "https://www.spps.org/families/students-rights-responsibilities",
+      "type": "html"
+    },
+    {
+      "slug": "spps-tech-students-families",
+      "label": "SPPS Technology Services: Students & Families",
+      "url": "https://www.spps.org/about/departments/technology-services/students-and-families",
+      "type": "html"
+    },
+    {
+      "slug": "mn-statute-121a73",
+      "label": "Minn. Stat. § 121A.73 (school cell phone policy mandate)",
+      "url": "https://www.revisor.mn.gov/statutes/cite/121A.73",
+      "type": "html"
+    }
+  ]
+}

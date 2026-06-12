@@ -1,0 +1,15 @@
+---
+interface Props {
+  sources: { label: string; url: string }[];
+}
+const { sources } = Astro.props;
+---
+
+<p class="sources">
+  <span class="src-label">Sources:</span>
+  {sources.map((s, i) => (
+    <>
+      <a href={s.url} rel="noopener">{s.label}</a>{i < sources.length - 1 ? ' · ' : ''}
+    </>
+  ))}
+</p>

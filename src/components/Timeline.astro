@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import TimelineEntry from './TimelineEntry.astro';
+
+const entries = (await getCollection('timeline')).sort((a, b) =>
+  a.data.date.localeCompare(b.data.date)
+);
+
+const filters = [
+  { value: 'all', label: 'All' },
+  { value: 'devices', label: 'Devices' },
+  { value: 'funding', label: 'Funding' },
+  { value: 'policy', label: 'SPPS Policy' },
+  { value: 'state-law', label: 'State Law' },
+  { value: 'covid', label: 'COVID Era' },
+  { value: 'context', label: 'Context' },
+];
+---
+
+<div class="timeline">
+  <div class="filters" role="group" aria-label="Filter timeline by category" hidden>
+    {filters.map((f) => (
+      <button type="button" data-filter={f.value} aria-pressed={f.value === 'all' ? 'true' : 'false'}>
+        {f.label}
+      </button>
+    ))}
+  </div>
+
+  <ol class="entries">
+    {entries.map((e) => (
+      <TimelineEntry entry={e.data} />
+    ))}
+  </ol>
+
+  <p class="empty" hidden>No events in this category yet.</p>
+</div>
+
+<script>
+  // Progressive enhancement: without JS the filter bar stays hidden and the
+  // full timeline renders. With JS, category buttons toggle entry visibility.
+  const root = document.querySelector('.timeline');
+  if (root) {
+    const bar = root.querySelector<HTMLElement>('.filters');
+    const buttons = root.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const entries = root.querySelectorAll<HTMLElement>('.entry');
+    const empty = root.querySelector<HTMLElement>('.empty');
+    if (bar) bar.hidden = false;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        let shown = 0;
+        entries.forEach((entry) => {
+          const show = filter === 'all' || entry.dataset.category === filter;
+          entry.hidden = !show;
+          if (show) shown++;
+        });
+        if (empty) empty.hidden = shown > 0;
+      });
+    });
+  }
+</script>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0 2rem;
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    padding: 0.75rem 0;
+    z-index: 5;
+  }
+  .filters button {
+    font: inherit;
+    font-size: 0.85rem;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 99px;
+    padding: 0.3rem 0.9rem;
+    cursor: pointer;
+  }
+  .filters button:hover { border-color: var(--navy); }
+  .filters button[aria-pressed='true'] {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+    font-weight: 600;
+  }
+  .entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .empty { color: var(--ink-soft); font-style: italic; }
+</style>

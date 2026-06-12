@@ -1,0 +1,136 @@
+/* SPPS EdTech — global styles. Civic, trustworthy, non-alarmist. */
+
+:root {
+  --navy: #1b3a5b;
+  --navy-dark: #122a44;
+  --paper: #faf7f2;
+  --ink: #26282b;
+  --ink-soft: #55585e;
+  --amber: #c77d11;
+  --amber-soft: #f3e3c8;
+  --line: #ddd6ca;
+  --card: #ffffff;
+
+  --cat-devices: #4a7ba6;
+  --cat-funding: #6b8e5a;
+  --cat-policy: #c77d11;
+  --cat-state-law: #8d5a8e;
+  --cat-covid: #b05a5a;
+  --cat-context: #76808c;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-head: Georgia, "Times New Roman", serif;
+  --measure: 44rem;
+  --wide: 64rem;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  color: var(--navy);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 0.5rem; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); margin-top: 2.5rem; }
+h3 { font-size: 1.15rem; }
+
+a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--amber); }
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+.lede {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 38rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus { left: 0; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.note {
+  background: var(--amber-soft);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  padding: 0.9rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.note p { margin: 0.25rem 0; }
+
+.sources {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.75rem;
+}
+.sources a { color: var(--ink-soft); }
+.sources .src-label { font-weight: 600; letter-spacing: 0.02em; }
+
+.updated {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { color: var(--navy); }
+
+.btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn:hover { background: var(--navy-dark); color: #fff; }

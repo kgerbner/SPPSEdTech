@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const order = ['everyone', 'parents', 'teachers'];
+const groups = (await getCollection('involvement')).sort(
+  (a, b) => order.indexOf(a.data.audience) - order.indexOf(b.data.audience)
+);
+---
+
+<BaseLayout
+  title="Get Involved"
+  description="How Saint Paul parents, teachers, and community members can shape technology policy in SPPS — board meetings, public comment, site councils, and the Legislature."
+>
+  <h1>Get Involved</h1>
+  <p class="lede">
+    Every policy on this site exists because someone showed up. The 2025 device
+    policy got two public readings before the vote; the next policy will too.
+    Here is where Saint Paul families, teachers, and neighbors can plug in.
+  </p>
+
+  {groups.map((group) => (
+    <section>
+      <h2>{group.data.heading}</h2>
+      {group.data.items.map((item) => (
+        <div class="card">
+          <h3>{item.title}</h3>
+          <p>{item.how}</p>
+          {item.url && (
+            <p class="go">
+              <a href={item.url} rel="noopener">{item.linkLabel ?? 'Learn more'} →</a>
+            </p>
+          )}
+        </div>
+      ))}
+    </section>
+  ))}
+
+  <div class="note">
+    <p>
+      <strong>One question that moves the needle.</strong> Whatever venue you
+      choose, this is the question this site exists to put on the record:
+      <em>"When did the district last evaluate whether its 1:1 device program
+      improves learning — and will the board commit to a public review?"</em>
+      It isn't anti-technology. It's the question any program a decade old and
+      millions of dollars a year deserves.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .card h3 { margin-top: 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .go { font-weight: 600; }
+</style>
