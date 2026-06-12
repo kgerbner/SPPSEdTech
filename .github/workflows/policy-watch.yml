@@ -74,3 +74,5 @@ jobs:
             exit 0
           fi
           gh issue create --title "$TITLE" --body-file policy-watch-unreachable.md
+
+# (workflow registration nudge)
