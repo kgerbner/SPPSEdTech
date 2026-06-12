@@ -85,12 +85,19 @@ const topics = [
         date range. Avoid "any and all records about technology" — it invites
         delay. The template below handles this for you.
       </p>
+      <p class="step-src">
+        Source: <a href="https://mn.gov/admin/data-practices/data/requests/">MN Data Practices Office: Requesting Data</a>
+      </p>
     </li>
     <li>
       <h3>Generate your request letter</h3>
       <p>
         Use the builder below. It produces a complete, polite, legally grounded
         request you can copy into an email.
+      </p>
+      <p class="step-src">
+        Source: the letter cites <a href="https://www.revisor.mn.gov/statutes/cite/13">Minn. Stat. ch. 13</a> and
+        <a href="https://www.revisor.mn.gov/statutes/cite/13.03">§ 13.03</a>
       </p>
     </li>
     <li>
@@ -102,6 +109,10 @@ const topics = [
         procedure (304.00.03). Submit through that page or by email, and keep a
         dated copy of exactly what you sent.
       </p>
+      <p class="step-src">
+        Source: <a href="https://www.spps.org/about/public-data-requests">SPPS Public Data Requests</a> ·
+        <a href="https://www.spps.org/about/board-of-education/board-policies-procedures">SPPS Board Policy 304.00 &amp; procedure 304.00.03</a>
+      </p>
     </li>
     <li>
       <h3>Track the response</h3>
@@ -110,6 +121,11 @@ const topics = [
         heard nothing in two weeks, send a brief, polite follow-up replying to
         your original message so the paper trail stays in one thread.
       </p>
+      <p class="step-src">
+        Source: response-time standards in
+        <a href="https://www.revisor.mn.gov/statutes/cite/13.03">Minn. Stat. § 13.03, subd. 2–3</a> and
+        <a href="https://mn.gov/admin/data-practices/data/requests/">MN Data Practices Office guidance</a>
+      </p>
     </li>
     <li>
       <h3>Inspect before you pay</h3>
@@ -117,6 +133,9 @@ const topics = [
         If the district quotes copy fees, remember you may <em>inspect</em> the
         records at no charge first, and electronic copies of electronic records
         should cost little or nothing.
+      </p>
+      <p class="step-src">
+        Source: <a href="https://www.revisor.mn.gov/statutes/cite/13.03">Minn. Stat. § 13.03, subd. 3</a> (free inspection; copy fee rules)
       </p>
     </li>
     <li>
@@ -129,6 +148,10 @@ const topics = [
         for help, including a formal advisory opinion
         (<a href="https://www.revisor.mn.gov/statutes/cite/13.072">§ 13.072</a>).
         It's free, and districts take these opinions seriously.
+      </p>
+      <p class="step-src">
+        Source: <a href="https://www.revisor.mn.gov/statutes/cite/13.072">Minn. Stat. § 13.072</a> (advisory opinions) ·
+        <a href="https://mn.gov/admin/data-practices/data/">MN Data Practices Office</a>
       </p>
     </li>
   </ol>
@@ -277,6 +300,12 @@ ${name ? name : '[Your name]'}`;
   }
   .steps h3 { margin: 0 0 0.4rem; }
   .steps p { margin: 0; }
+  .step-src {
+    margin-top: 0.55rem !important;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .step-src a { color: var(--ink-soft); }
 
   .builder .field { margin-bottom: 1rem; }
   .builder label {

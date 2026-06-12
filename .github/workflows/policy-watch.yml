@@ -75,4 +75,25 @@ jobs:
           fi
           gh issue create --title "$TITLE" --body-file policy-watch-unreachable.md
 
+  linkcheck:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check every external link on the site
+        id: links
+        run: python3 scripts/link_check.py
+
+      - name: Open issue for dead links
+        if: steps.links.outputs.dead == 'true'
+        run: |
+          TITLE="Link check: dead links on the site"
+          if gh issue list --state open --search "\"$TITLE\" in:title" --json number --jq length | grep -qv '^0$'; then
+            echo "An open dead-link issue already exists; skipping."
+            exit 0
+          fi
+          gh issue create --title "$TITLE" --body-file link-check-report.md
+
 # (workflow registration nudge)
