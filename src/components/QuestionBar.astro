@@ -8,6 +8,14 @@ const examples = [
   'Can we opt out of the iPad?',
   'Is social media blocked?',
   'What does state law require?',
+  'Are smartwatches banned?',
+  'Do I have to pay for a broken iPad?',
+  'Do elementary students take iPads home?',
+  "Is my child's location tracked?",
+  'Can the iPad camera spy on my child?',
+  "Who sees my child's data?",
+  'What is the pending statewide ban?',
+  'How do I speak at a board meeting?',
 ];
 ---
 
@@ -71,27 +79,31 @@ const examples = [
 
   const STOP = new Set(['the', 'a', 'an', 'is', 'are', 'can', 'do', 'does', 'my', 'in', 'at', 'to', 'of', 'for', 'what', 'who', 'how', 'when', 'where', 'why', 'i', 'we', 'our', 'their', 'there', 'about', 'and', 'or', 'with', 'be', 'will', 'have', 'has', 'on', 'it', 'that', 'this', 'they', 'them', 'spps', 'mn', 'paul', 'saint']);
 
-  function tokens(q: string): Set<string> {
+  // Each question word becomes a "concept" (its synonym group, or itself), and
+  // an entry scores each concept at most once — so a clause that lists many
+  // phone-related topic words doesn't outrank a better match.
+  function concepts(q: string): string[][] {
     const raw = q.toLowerCase().replace(/[^a-z0-9:-]+/g, ' ').split(/\s+/).filter((w) => w && !STOP.has(w));
-    const out = new Set(raw);
+    const seen = new Set<string[]>();
+    const singles = new Set<string>();
     for (const w of raw) {
-      for (const group of SYNONYMS) {
-        if (group.includes(w)) group.forEach((g) => out.add(g));
-      }
+      const group = SYNONYMS.find((g) => g.includes(w));
+      if (group) seen.add(group);
+      else singles.add(w);
     }
-    return out;
+    return [...seen, ...[...singles].map((w) => [w])];
   }
 
   function search(q: string) {
-    const qs = tokens(q);
-    if (qs.size === 0) return [];
+    const qc = concepts(q);
+    if (qc.length === 0) return [];
     const scored = data
       .map((e: any) => {
         let score = 0;
         const text = (e.citation + ' ' + e.text).toLowerCase();
-        for (const t of qs) {
-          if (e.topics.includes(t)) score += 3;
-          else if (text.includes(t)) score += 1;
+        for (const group of qc) {
+          if (group.some((t) => e.topics.includes(t))) score += 3;
+          else if (group.some((t) => text.includes(t))) score += 1;
         }
         return { e, score };
       })

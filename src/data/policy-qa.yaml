@@ -24,19 +24,6 @@
   url: "https://www.revisor.mn.gov/statutes/cite/121A.73"
   topics: [state, law, statute, legislature, minnesota, cell, phone, policy, required, mandate, deadline, march, 2025, mental, health, behavior, academic]
 
-- id: mn-pending-ban
-  citation: "SF 508 / HF 2516 (2026 session — pending, not law)"
-  source: "Minnesota Legislature"
-  kind: summary
-  text: >
-    A pending proposal would go further than current law: a complete ban on cell
-    phones and smartwatches for grades K–8 and a classroom ban for grades 9–12,
-    statewide, starting in 2026–27. As of spring 2026 it was folded into a larger
-    education bill and has not passed. If it becomes law, it would override
-    SPPS's school-by-school discretion.
-  url: "https://www.revisor.mn.gov/bills/bill.php?b=Senate&f=SF0508&ssn=0&y=2025"
-  topics: [ban, statewide, bill, pending, smartwatch, watch, k-8, elementary, middle, high, classroom, 2026, sf508, override, law]
-
 - id: spps-550
   citation: "SPPS Board Policy 550.00 — Cellular Phones and Personal Electronic Devices"
   source: "SPPS Board of Education"
@@ -63,6 +50,19 @@
   url: "https://www.spps.org/about/board-of-education/board-policies-procedures"
   topics: [school, principal, site, council, implementation, procedures, lunch, passing, enforcement, differs, building, my]
 
+- id: mn-pending-ban
+  citation: "SF 508 / HF 2516 (2026 session — pending, not law)"
+  source: "Minnesota Legislature"
+  kind: summary
+  text: >
+    A pending proposal would go further than current law: a complete ban on cell
+    phones and smartwatches for grades K–8 and a classroom ban for grades 9–12,
+    statewide, starting in 2026–27. As of spring 2026 it was folded into a larger
+    education bill and has not passed. If it becomes law, it would override
+    SPPS's school-by-school discretion.
+  url: "https://www.revisor.mn.gov/bills/bill.php?b=Senate&f=SF0508&ssn=0&y=2025"
+  topics: [ban, statewide, bill, pending, smartwatch, watch, k-8, elementary, middle, high, classroom, 2026, sf508, override, law]
+
 - id: spps-520
   citation: "SPPS Board Policy 520.00 — Technology Usage & Safety"
   source: "SPPS Board of Education"
@@ -73,7 +73,7 @@
     exists for families. This policy — not the phone policy — is the one that
     governs the district-issued iPads.
   url: "https://www.spps.org/about/board-of-education/board-policies-procedures"
-  topics: [acceptable, use, agreement, technology, usage, safety, opt, out, form, 520, internet, rules, ipad]
+  topics: [acceptable, use, agreement, technology, usage, safety, form, 520, internet, rules, ipad]
 
 - id: ipad-scale
   citation: "SPPS Technology Services — 1:1 device program"
