@@ -1,0 +1,194 @@
+# Policy Q&A index — the clause-level entries behind the homepage question bar.
+#
+# HOW TO EDIT: each entry needs:
+#   citation — the precise clause/policy being quoted (shown to the visitor)
+#   source   — who publishes it
+#   kind     — "quote" (verbatim from the source) or "summary" (paraphrase)
+#   text     — the clause text shown as the answer
+#   url      — where the visitor can read the full source
+#   topics   — lowercase keywords the search matches against (be generous)
+# Quotes come from the policy-snapshots/ files fetched from official sites;
+# when those pages change, the policy watcher opens a PR — re-check quotes then.
+
+- id: mn-cell-phone-law
+  citation: "Minn. Stat. § 121A.73 — School Cell Phone Policy"
+  source: "Minnesota Statutes (2024)"
+  kind: quote
+  text: >
+    "A school district or charter school must adopt a policy on students'
+    possession and use of cell phones in school by March 15, 2025. The Minnesota
+    Elementary School Principals' Association and the Minnesota Association of
+    Secondary School Principals must collaborate to make best practices available
+    to schools … to minimize the impact of cell phones on student behavior,
+    mental health, and academic attainment."
+  url: "https://www.revisor.mn.gov/statutes/cite/121A.73"
+  topics: [state, law, statute, legislature, minnesota, cell, phone, policy, required, mandate, deadline, march, 2025, mental, health, behavior, academic]
+
+- id: mn-pending-ban
+  citation: "SF 508 / HF 2516 (2026 session — pending, not law)"
+  source: "Minnesota Legislature"
+  kind: summary
+  text: >
+    A pending proposal would go further than current law: a complete ban on cell
+    phones and smartwatches for grades K–8 and a classroom ban for grades 9–12,
+    statewide, starting in 2026–27. As of spring 2026 it was folded into a larger
+    education bill and has not passed. If it becomes law, it would override
+    SPPS's school-by-school discretion.
+  url: "https://www.revisor.mn.gov/bills/bill.php?b=Senate&f=SF0508&ssn=0&y=2025"
+  topics: [ban, statewide, bill, pending, smartwatch, watch, k-8, elementary, middle, high, classroom, 2026, sf508, override, law]
+
+- id: spps-550
+  citation: "SPPS Board Policy 550.00 — Cellular Phones and Personal Electronic Devices"
+  source: "SPPS Board of Education"
+  kind: summary
+  text: >
+    Adopted February 2025 and in effect since fall 2025: students' personal
+    devices must be turned off and out of sight during the school day — left at
+    home, in a locker, or off in a backpack — with exceptions for documented
+    medical needs and emergencies. Each school publishes its own implementation
+    procedures (lunch, passing time, storage, enforcement), which is why rules
+    differ between buildings.
+  url: "https://www.spps.org/about/board-of-education/board-policies-procedures"
+  topics: [phone, cell, cellphone, smartphone, smartwatch, watch, earbuds, headphones, personal, device, bring, school, allowed, ban, locker, backpack, off, away, medical, exception, emergency, lunch, passing, 550]
+
+- id: spps-school-procedures
+  citation: "Policy 550.00 — school-level implementation"
+  source: "SPPS Board of Education"
+  kind: summary
+  text: >
+    The district policy delegates implementation details to each building: your
+    school's principal and site council decide what happens at lunch and passing
+    time, how devices are stored, and how the rule is enforced. Ask your school
+    for its written procedures if you can't find them on its website.
+  url: "https://www.spps.org/about/board-of-education/board-policies-procedures"
+  topics: [school, principal, site, council, implementation, procedures, lunch, passing, enforcement, differs, building, my]
+
+- id: spps-520
+  citation: "SPPS Board Policy 520.00 — Technology Usage & Safety"
+  source: "SPPS Board of Education"
+  kind: summary
+  text: >
+    The district's acceptable-use policy for its own technology. Students sign an
+    Acceptable Use Agreement, and a Technology Opt Out Form (procedure 520.00.1)
+    exists for families. This policy — not the phone policy — is the one that
+    governs the district-issued iPads.
+  url: "https://www.spps.org/about/board-of-education/board-policies-procedures"
+  topics: [acceptable, use, agreement, technology, usage, safety, opt, out, form, 520, internet, rules, ipad]
+
+- id: ipad-scale
+  citation: "SPPS Technology Services — 1:1 device program"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Saint Paul Public Schools has one of the largest and longstanding 1:1 device
+    initiatives in the midwest area, with nearly 40,000 iPads for students and
+    staff and over 4,000 Macbooks for instructional staff."
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [ipad, 1:1, one-to-one, device, program, how, many, 40000, tablet, macbook, scale]
+
+- id: ipad-take-home
+  citation: "SPPS Technology Services — who takes iPads home"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Elementary Students receive an iPad and keyboard case each fall. In most
+    cases, iPads stay in classroom charging carts at night … Secondary Students
+    receive an iPad and keyboard case and take it home each night and over the
+    summer."
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [take, home, elementary, secondary, middle, high, overnight, summer, cart, ipad, keyboard]
+
+- id: ipad-decline
+  citation: "SPPS Technology Services — declining the device"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Families have the option to decline devices being sent home at any time."
+    A broader Technology Opt Out Form also exists under Board Policy 520.00.1.
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [decline, opt, out, refuse, no, ipad, home, choice, family, parent]
+
+- id: ipad-fines
+  citation: "SPPS Technology Services — damaged or lost iPads"
+  source: "spps.org (citing Minn. Stat. §§ 123B.34–123B.39)"
+  kind: quote
+  text: >
+    "No fines can be required for student iPad breakage or loss due to MN state
+    statutes (sections 123B.34 to 123B.39)." Schools "may request, not require,"
+    payment for damaged or missing equipment; consequences can include losing
+    take-home privileges.
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [fine, fines, fee, pay, charge, broken, damaged, lost, stolen, cost, replace, money]
+
+- id: ipad-filtering
+  citation: "SPPS Technology Services — internet filtering"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Student iPads have pre-installed internet filtering. Adult content is
+    blocked from student access, as well as social media site[s] such as
+    Facebook, Snapchat and TikTok. While no content filter is 100% foolproof,
+    our Technology Services team is responsive in continually adjusting filters."
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [filter, filtering, blocked, block, youtube, social, media, facebook, tiktok, snapchat, instagram, adult, content, internet, websites]
+
+- id: ipad-apps
+  citation: "SPPS Technology Services — blocked apps"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Pre-installed device management features block apps such as the Apple App
+    Store, FaceTime, iMessage and other tools. Students cannot add their own
+    personal Email accounts." Students and staff get a reviewed self-service
+    catalog of 400+ apps instead.
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [app, apps, store, facetime, imessage, email, games, install, download, jamf, management, self-service]
+
+- id: ipad-camera
+  citation: "SPPS Technology Services — camera and microphone"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Camera and microphone use on the iPad is controlled on an app-by-app basis
+    by the student. … It does not mean the app is listening or watching the
+    student from that point onwards. Students must always tap 'record' for the
+    microphone or camera to begin recording."
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [camera, microphone, mic, listening, watching, spy, spying, record, recording, privacy]
+
+- id: ipad-location
+  citation: "SPPS Technology Services — location tracking"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "Student location tracking is not allowed for third party apps. Location
+    tracking of the device is reserved for security and lost device procedures by
+    a core group of Technology Services staff. General staff do not have ability
+    to view device location."
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [location, tracking, track, gps, where, privacy, surveillance, monitor, monitoring]
+
+- id: data-privacy
+  citation: "SPPS Technology Services — student data and outside companies"
+  source: "spps.org"
+  kind: quote
+  text: >
+    "External 'LMS' companies, including Seesaw, Schoology and others sign
+    contracts and data sharing agreements with Saint Paul Public Schools. …
+    Student data is NOT tracked by these companies after our students leave or
+    move to the next system." Records practices are governed by Board Policy
+    304.00 (Records: Data Management).
+  url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+  topics: [data, privacy, schoology, seesaw, company, companies, sharing, records, student, information, sold]
+
+- id: public-comment
+  citation: "SPPS Board Policy 206.01 — Public Participation in Board Meetings"
+  source: "SPPS Board of Education"
+  kind: summary
+  text: >
+    Board policy provides for public participation at regular board meetings,
+    with published guidelines for public comment (exhibit 206.01.01). Policy
+    changes get multiple public readings before a vote, so there is always a
+    window to weigh in before a decision is final.
+  url: "https://www.spps.org/about/board-of-education"
+  topics: [comment, public, speak, board, meeting, testify, voice, participate, weigh, input, hearing, 206]

@@ -53,4 +53,17 @@ const resources = defineCollection({
   }),
 });
 
-export const collections = { timeline, districts, resources };
+const policyQa = defineCollection({
+  loader: file('src/data/policy-qa.yaml', { parser: yamlParser }),
+  schema: z.object({
+    id: z.string(),
+    citation: z.string(),
+    source: z.string(),
+    kind: z.enum(['quote', 'summary']),
+    text: z.string(),
+    url: z.string().url(),
+    topics: z.array(z.coerce.string()).min(3, 'add enough topics for the search to match'),
+  }),
+});
+
+export const collections = { timeline, districts, resources, policyQa };

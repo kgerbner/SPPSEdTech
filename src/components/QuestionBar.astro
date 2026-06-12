@@ -1,0 +1,234 @@
+---
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('policyQa')).map((e) => e.data);
+
+const examples = [
+  'Can my child bring a phone to school?',
+  'Can we opt out of the iPad?',
+  'Is social media blocked?',
+  'What does state law require?',
+];
+---
+
+<section class="qa" aria-label="Ask a policy question">
+  <h2>Ask a policy question</h2>
+  <p class="qa-sub">
+    Search the actual SPPS and Minnesota policy text. Answers quote the specific
+    clause and link to the official source.
+  </p>
+  <form id="qa-form" role="search">
+    <input
+      id="qa-input"
+      type="search"
+      placeholder="e.g., Can my child bring a phone to school?"
+      aria-label="Your question about SPPS or Minnesota ed-tech policy"
+      autocomplete="off"
+    />
+    <button type="submit">Ask</button>
+  </form>
+  <p class="qa-examples">
+    Try:
+    {examples.map((q) => <button type="button" class="chip" data-q={q}>{q}</button>)}
+  </p>
+
+  <div id="qa-results" aria-live="polite"></div>
+
+  <p class="qa-fine">
+    This searches a curated index of official policy text (kept current by this
+    site's weekly policy monitor). It isn't legal advice — always confirm with
+    the linked source, and check your school's own procedures.
+  </p>
+</section>
+
+<script type="application/json" id="qa-data" set:html={JSON.stringify(entries)} />
+
+<script>
+  // Client-side clause search: tokenize the question, expand synonyms, score
+  // each indexed clause by topic and text matches, show the top citations.
+  const data = JSON.parse(document.getElementById('qa-data')!.textContent!);
+
+  const SYNONYMS: string[][] = [
+    ['phone', 'phones', 'cellphone', 'cellphones', 'cell', 'smartphone', 'smartphones', 'mobile'],
+    ['ipad', 'ipads', 'tablet', 'tablets', 'device', 'devices', 'laptop', 'laptops', 'macbook', 'chromebook', 'screen', 'screens'],
+    ['watch', 'watches', 'smartwatch', 'smartwatches', 'wearable'],
+    ['ban', 'banned', 'bans', 'prohibit', 'prohibited', 'restrict', 'restricted', 'limit', 'limits', 'allowed', 'allow', 'rule', 'rules'],
+    ['opt', 'decline', 'refuse', 'exempt', 'waiver'],
+    ['blocked', 'block', 'filter', 'filtering', 'filtered', 'youtube', 'social', 'facebook', 'tiktok', 'snapchat', 'instagram'],
+    ['law', 'laws', 'statute', 'statutes', 'legislature', 'state', 'bill', 'legal'],
+    ['camera', 'microphone', 'mic', 'record', 'recording', 'listening', 'watching', 'spy', 'spying'],
+    ['tracking', 'track', 'tracked', 'location', 'gps', 'surveillance', 'monitor', 'monitoring'],
+    ['privacy', 'private', 'data'],
+    ['fine', 'fines', 'fee', 'fees', 'pay', 'cost', 'charge', 'broken', 'break', 'damaged', 'damage', 'lost', 'lose', 'stolen', 'replace'],
+    ['home', 'take-home', 'overnight', 'night', 'summer'],
+    ['comment', 'speak', 'testify', 'voice', 'input', 'meeting', 'meetings', 'board'],
+    ['app', 'apps', 'games', 'game', 'download', 'install'],
+    ['kid', 'kids', 'child', 'children', 'student', 'students', 'son', 'daughter'],
+    ['school', 'schools', 'class', 'classroom', 'classrooms'],
+    ['elementary', 'kindergarten', 'k-8'],
+    ['secondary', 'middle', 'high', 'highschool'],
+  ];
+
+  const STOP = new Set(['the', 'a', 'an', 'is', 'are', 'can', 'do', 'does', 'my', 'in', 'at', 'to', 'of', 'for', 'what', 'who', 'how', 'when', 'where', 'why', 'i', 'we', 'our', 'their', 'there', 'about', 'and', 'or', 'with', 'be', 'will', 'have', 'has', 'on', 'it', 'that', 'this', 'they', 'them', 'spps', 'mn', 'paul', 'saint']);
+
+  function tokens(q: string): Set<string> {
+    const raw = q.toLowerCase().replace(/[^a-z0-9:-]+/g, ' ').split(/\s+/).filter((w) => w && !STOP.has(w));
+    const out = new Set(raw);
+    for (const w of raw) {
+      for (const group of SYNONYMS) {
+        if (group.includes(w)) group.forEach((g) => out.add(g));
+      }
+    }
+    return out;
+  }
+
+  function search(q: string) {
+    const qs = tokens(q);
+    if (qs.size === 0) return [];
+    const scored = data
+      .map((e: any) => {
+        let score = 0;
+        const text = (e.citation + ' ' + e.text).toLowerCase();
+        for (const t of qs) {
+          if (e.topics.includes(t)) score += 3;
+          else if (text.includes(t)) score += 1;
+        }
+        return { e, score };
+      })
+      .filter((r: any) => r.score >= 3)
+      .sort((a: any, b: any) => b.score - a.score);
+    return scored.slice(0, 4).map((r: any) => r.e);
+  }
+
+  function esc(s: string) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function render(results: any[], q: string) {
+    const box = document.getElementById('qa-results')!;
+    if (!q.trim()) { box.innerHTML = ''; return; }
+    if (results.length === 0) {
+      box.innerHTML = `<div class="qa-card qa-empty"><p>No matching clause in the index yet. Try different words (e.g., "phone", "iPad", "opt out"), browse the <a href="${baseHref('/policy/')}">Current Policy</a> page, or search the <a href="https://www.spps.org/about/board-of-education/board-policies-procedures">SPPS policy library</a> and <a href="https://www.revisor.mn.gov/statutes/cite/121A.73">Minnesota Statutes</a> directly.</p></div>`;
+      return;
+    }
+    box.innerHTML = results
+      .map(
+        (e) => `
+      <div class="qa-card">
+        <p class="qa-cite"><span class="qa-badge">${esc(e.source)}</span> ${esc(e.citation)}</p>
+        <p class="qa-text">${e.kind === 'summary' ? '<em>Summary:</em> ' : ''}${esc(e.text)}</p>
+        <p class="qa-link"><a href="${esc(e.url)}" rel="noopener">Read the full source →</a></p>
+      </div>`
+      )
+      .join('');
+  }
+
+  function baseHref(path: string) {
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    return base + path;
+  }
+
+  const form = document.getElementById('qa-form') as HTMLFormElement;
+  const input = document.getElementById('qa-input') as HTMLInputElement;
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    render(search(input.value), input.value);
+  });
+  document.querySelectorAll<HTMLButtonElement>('.chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      input.value = chip.dataset.q || '';
+      render(search(input.value), input.value);
+    });
+  });
+</script>
+
+<style>
+  .qa {
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: 0 6px 0 var(--card-shadow);
+    padding: 1.6rem 1.8rem;
+    margin: 2.5rem 0 0;
+  }
+  .qa h2 { margin: 0 0 0.25rem; }
+  .qa-sub { margin: 0 0 1rem; color: var(--ink-soft); }
+  #qa-form {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  #qa-input {
+    flex: 1 1 18rem;
+    font: inherit;
+    padding: 0.65rem 1.1rem;
+    border: 2px solid var(--line);
+    border-radius: 99px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  #qa-input:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+  #qa-form button {
+    font: inherit;
+    font-weight: 700;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    padding: 0.65rem 1.6rem;
+    cursor: pointer;
+  }
+  #qa-form button:hover { background: var(--teal-dark); }
+  .qa-examples {
+    margin: 0.9rem 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .chip {
+    font: inherit;
+    font-size: 0.8rem;
+    border: 1.5px solid var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    border-radius: 99px;
+    padding: 0.15rem 0.7rem;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--teal); color: var(--teal); }
+  .qa :global(.qa-card) {
+    border-top: 1px solid var(--line);
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+  }
+  .qa :global(.qa-cite) {
+    margin: 0 0 0.35rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .qa :global(.qa-badge) {
+    display: inline-block;
+    background: var(--teal-soft);
+    color: var(--teal-dark);
+    border-radius: 99px;
+    padding: 0.05rem 0.6rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 0.4rem;
+  }
+  .qa :global(.qa-text) { margin: 0; color: var(--ink); }
+  .qa :global(.qa-link) { margin: 0.4rem 0 0; font-weight: 600; font-size: 0.9rem; }
+  .qa-fine {
+    margin: 1.2rem 0 0;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+</style>

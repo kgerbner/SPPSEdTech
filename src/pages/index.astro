@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import QuestionBar from '../components/QuestionBar.astro';
 import { href } from '../utils';
 
 const cards = [
@@ -37,6 +38,8 @@ const cards = [
     history of technology in SPPS classrooms, what current policy and Minnesota
     law say, how other districts approach it, and where to learn more.
   </p>
+
+  <QuestionBar />
 
   <nav class="cards" aria-label="Site sections">
     {cards.map((c) => (
