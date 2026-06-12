@@ -8,6 +8,8 @@
   --coral-soft: #fbe9e2;
   --gold: #e0a126;
   --paper: #fdf6ec;
+  --sand: #f3e7d3;
+  --sand-line: #e6d8bf;
   --ink: #27332f;
   --ink-soft: #5a6660;
   --line: #ead9c0;
@@ -60,14 +62,14 @@ body::before {
   height: 26rem;
   top: -10rem;
   right: -8rem;
-  background: #f3e7d3;
+  background: var(--teal-soft);
 }
 body::after {
   width: 20rem;
   height: 20rem;
   bottom: -9rem;
   left: -8rem;
-  background: var(--teal-soft);
+  background: var(--sand);
 }
 
 h1, h2, h3 {
