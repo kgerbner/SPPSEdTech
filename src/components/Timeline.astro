@@ -77,19 +77,19 @@ const filters = [
   .filters button {
     font: inherit;
     font-size: 0.85rem;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     background: var(--card);
     color: var(--ink);
     border-radius: 99px;
-    padding: 0.3rem 0.9rem;
+    padding: 0.3rem 0.95rem;
     cursor: pointer;
-  }
-  .filters button:hover { border-color: var(--navy); }
-  .filters button[aria-pressed='true'] {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: #fff;
     font-weight: 600;
+  }
+  .filters button:hover { border-color: var(--teal); color: var(--teal); }
+  .filters button[aria-pressed='true'] {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
   }
   .entries {
     list-style: none;

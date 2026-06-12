@@ -57,7 +57,7 @@ const cards = [
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 1.25rem;
+    gap: 1.5rem;
     margin-top: 2.5rem;
   }
   .cards .card {
@@ -66,16 +66,34 @@ const cards = [
     margin: 0;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .cards .card:hover { border-color: var(--navy); }
+  .cards .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 var(--card-shadow);
+  }
+  .cards .card::before {
+    content: '';
+    width: 3.2rem;
+    height: 0.9rem;
+    border-radius: 99px;
+    background: var(--teal);
+    margin-bottom: 1rem;
+  }
+  .cards .card:nth-child(3n + 2)::before { background: var(--coral); }
+  .cards .card:nth-child(3n)::before { background: var(--gold); }
   .cards h3 { margin: 0 0 0.5rem; }
   .cards p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); flex-grow: 1; }
   .cta {
-    margin-top: 0.9rem;
+    margin-top: 1.1rem;
+    align-self: flex-start;
     font-weight: 600;
-    color: var(--navy);
     font-size: 0.9rem;
+    color: var(--teal);
+    border: 2px solid var(--teal);
+    border-radius: 99px;
+    padding: 0.3rem 1.1rem;
+    transition: background 0.15s ease, color 0.15s ease;
   }
-  .cards .card:hover .cta { color: var(--amber); }
+  .cards .card:hover .cta { background: var(--teal); color: #fff; }
 </style>

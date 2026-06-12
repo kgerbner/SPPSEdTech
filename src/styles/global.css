@@ -1,25 +1,27 @@
-/* SPPS EdTech — global styles. Civic, trustworthy, non-alarmist. */
+/* SPPS EdTech — global styles. Warm, friendly, community feel (Teal & Coral). */
 
 :root {
-  --navy: #1b3a5b;
-  --navy-dark: #122a44;
-  --paper: #faf7f2;
-  --ink: #26282b;
-  --ink-soft: #55585e;
-  --amber: #c77d11;
-  --amber-soft: #f3e3c8;
-  --line: #ddd6ca;
+  --teal: #0e7c66;
+  --teal-dark: #0a5d4d;
+  --teal-soft: #eaf3ef;
+  --coral: #f4795b;
+  --coral-soft: #fbe9e2;
+  --gold: #e0a126;
+  --paper: #fdf6ec;
+  --ink: #27332f;
+  --ink-soft: #5a6660;
+  --line: #ead9c0;
   --card: #ffffff;
+  --card-shadow: #efe6d6;
 
-  --cat-devices: #4a7ba6;
+  --cat-devices: #3a7ca5;
   --cat-funding: #6b8e5a;
-  --cat-policy: #c77d11;
+  --cat-policy: #f4795b;
   --cat-state-law: #8d5a8e;
-  --cat-covid: #b05a5a;
-  --cat-context: #76808c;
+  --cat-covid: #c25e5e;
+  --cat-context: #8a8f84;
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-head: Georgia, "Times New Roman", serif;
   --measure: 44rem;
   --wide: 64rem;
 }
@@ -40,20 +42,57 @@ body {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.65;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* soft decorative shapes */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+body::before {
+  width: 26rem;
+  height: 26rem;
+  top: -10rem;
+  right: -8rem;
+  background: #f3e7d3;
+}
+body::after {
+  width: 20rem;
+  height: 20rem;
+  bottom: -9rem;
+  left: -8rem;
+  background: var(--teal-soft);
 }
 
 h1, h2, h3 {
-  font-family: var(--font-head);
-  color: var(--navy);
+  color: var(--ink);
+  font-weight: 700;
   line-height: 1.2;
   text-wrap: balance;
 }
 h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 0.5rem; }
-h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); margin-top: 2.5rem; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.7rem); margin-top: 2.5rem; color: var(--teal-dark); }
 h3 { font-size: 1.15rem; }
 
-a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-a:hover { color: var(--amber); }
+/* coral underline flourish for page titles */
+h1::after {
+  content: '';
+  display: block;
+  width: 7.5rem;
+  height: 0.5rem;
+  margin-top: 0.9rem;
+  border-radius: 99px;
+  background: var(--coral);
+}
+
+a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--coral); }
 
 main {
   max-width: var(--measure);
@@ -72,7 +111,7 @@ main.wide { max-width: var(--wide); }
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--navy);
+  background: var(--teal);
   color: #fff;
   padding: 0.5rem 1rem;
   z-index: 10;
@@ -81,16 +120,17 @@ main.wide { max-width: var(--wide); }
 
 .card {
   background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  padding: 1.4rem 1.6rem;
   margin: 1.25rem 0;
+  box-shadow: 0 6px 0 var(--card-shadow);
 }
 
 .note {
-  background: var(--amber-soft);
-  border-left: 4px solid var(--amber);
-  border-radius: 0 6px 6px 0;
+  background: var(--coral-soft);
+  border-left: 6px solid var(--coral);
+  border-radius: 0 16px 16px 0;
   padding: 0.9rem 1.25rem;
   margin: 1.5rem 0;
 }
@@ -111,26 +151,36 @@ main.wide { max-width: var(--wide); }
 }
 
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
   margin: 1.5rem 0;
   font-size: 0.95rem;
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 0 var(--card-shadow);
 }
 th, td {
   text-align: left;
-  padding: 0.6rem 0.75rem;
+  padding: 0.7rem 0.9rem;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
-th { color: var(--navy); }
+thead th {
+  color: #fff;
+  background: var(--teal);
+  border-bottom: none;
+}
+tbody tr:last-child td { border-bottom: none; }
 
 .btn {
   display: inline-block;
-  background: var(--navy);
+  background: var(--teal);
   color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 99px;
   text-decoration: none;
   font-weight: 600;
 }
-.btn:hover { background: var(--navy-dark); color: #fff; }
+.btn:hover { background: var(--teal-dark); color: #fff; }
