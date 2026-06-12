@@ -35,32 +35,12 @@ const cards = [
   title="SPPS EdTech"
   description="An independent resource for Saint Paul families and teachers: the history, policy, and evidence on technology in Saint Paul Public Schools classrooms."
 >
-  <h1>Technology in Saint Paul's classrooms deserves a closer look.</h1>
+  <h1>Technology in Saint Paul Public Schools</h1>
   <p class="lede">
-    For over a decade, Saint Paul Public Schools has put a screen on every desk —
-    with little public evidence about what it does for learning. This site helps
-    families and teachers understand how we got here, what the rules are, and how
-    to ask for better.
+    An independent guide for families, teachers, and community members: the
+    history of technology in SPPS classrooms, what current policy and Minnesota
+    law say, how other districts approach it, and where to learn more.
   </p>
-
-  <div class="thesis card">
-    <h2>Purposeful, not addictive</h2>
-    <p>
-      This is not an anti-technology site. Technology that serves a clear
-      pedagogical purpose — a documentary in history class, code in computer
-      science, assistive tools that open doors — belongs in school. Technology
-      designed to capture attention — streaks, autoplay, gamified rewards,
-      infinite feeds — competes with school, even when it ships on a
-      district-issued iPad.
-    </p>
-    <p>
-      The evidence is increasingly hard to ignore: device distraction measurably
-      lowers achievement, and heavy screen use tracks the decline in adolescent
-      mental health. SPPS took a step in 2025 by putting personal phones away.
-      But its own 1:1 program — a decade old and millions of dollars a year — has
-      never faced a public review against learning outcomes. We think it should.
-    </p>
-  </div>
 
   <nav class="cards" aria-label="Site sections">
     {cards.map((c) => (
@@ -74,7 +54,6 @@ const cards = [
 </BaseLayout>
 
 <style>
-  .thesis h2 { margin-top: 0; }
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
