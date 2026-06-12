@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SourceList from '../components/SourceList.astro';
 import { getCollection } from 'astro:content';
 
-const statusOrder = ['blocked', 'limited', 'allowed', 'parent-tool'];
+const statusOrder = ['allowed', 'limited', 'blocked', 'parent-tool'];
 const apps = (await getCollection('apps')).sort(
   (a, b) =>
     statusOrder.indexOf(a.data.status) - statusOrder.indexOf(b.data.status) ||
