@@ -1,0 +1,339 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Preset request topics; "letter" is the precise description inserted into the
+// generated request, written to be specific enough that the district can't
+// reject it as overbroad.
+const topics = [
+  {
+    value: 'contracts',
+    label: 'Device contracts (Apple/iPad leases)',
+    letter:
+      'all contracts, leases, amendments, and renewal agreements between the district and Apple Inc. (or any reseller) for student or staff devices, including total annual costs',
+  },
+  {
+    value: 'vendors',
+    label: 'EdTech vendor & data-sharing agreements',
+    letter:
+      'all current contracts and data-sharing agreements between the district and educational technology vendors, including but not limited to Schoology/PowerSchool, Seesaw, JAMF, and Securly',
+  },
+  {
+    value: 'evaluations',
+    label: 'Evaluations of the 1:1 device program',
+    letter:
+      'all reports, evaluations, audits, or analyses assessing the effect of the district’s 1:1 device program on student learning outcomes, engagement, or achievement',
+  },
+  {
+    value: 'survey',
+    label: 'Technology survey results & methodology',
+    letter:
+      'the complete results, questions, response counts, and methodology of the district’s technology surveys of students, families, and staff',
+  },
+  {
+    value: 'usage',
+    label: 'Screen-time / app-usage reports',
+    letter:
+      'all aggregate reports of student device usage, screen time, or application usage generated from the district’s device-management or filtering systems (e.g., JAMF, Securly)',
+  },
+  {
+    value: 'phone-procedures',
+    label: 'School-level phone policy procedures',
+    letter:
+      'the written implementation procedures adopted by each school under Board Policy 550.00 (Cellular Phones and Personal Electronic Devices)',
+  },
+  {
+    value: 'custom',
+    label: 'Something else (describe it yourself)',
+    letter: '',
+  },
+];
+---
+
+<BaseLayout
+  title="Records Requests"
+  description="A step-by-step guide to requesting public records from Saint Paul Public Schools under the Minnesota Government Data Practices Act, with a ready-to-send template."
+>
+  <h1>How to Request Public Records</h1>
+  <p class="lede">
+    Contracts, evaluations, survey results, screen-time reports — much of what
+    this site asks about already exists on paper inside the district. Under
+    Minnesota law, you have the right to see it. Here's how, step by step.
+  </p>
+
+  <h2>Know your rights first</h2>
+  <div class="card">
+    <p>
+      The <strong>Minnesota Government Data Practices Act</strong>
+      (<a href="https://www.revisor.mn.gov/statutes/cite/13">Minn. Stat. ch. 13</a>)
+      applies to every Minnesota school district, including SPPS. The essentials:
+    </p>
+    <ul>
+      <li><strong>Government data is presumed public</strong> unless a specific law says otherwise (<a href="https://www.revisor.mn.gov/statutes/cite/13.03">§ 13.03</a>).</li>
+      <li><strong>You don't have to say why you want it</strong>, and the district cannot require you to identify yourself to request public data.</li>
+      <li><strong>Inspecting records is free.</strong> The district may charge for copies — asking for electronic copies usually avoids or minimizes fees.</li>
+      <li><strong>Responses must come within a reasonable time.</strong> If the district denies any part of your request, it must cite the specific law that makes the data not public.</li>
+    </ul>
+  </div>
+
+  <h2>The process, step by step</h2>
+  <ol class="steps">
+    <li>
+      <h3>Decide exactly what you're asking for</h3>
+      <p>
+        Specific requests get faster, better answers. Name the type of document
+        ("contracts," "evaluation reports," "survey results"), the subject, and a
+        date range. Avoid "any and all records about technology" — it invites
+        delay. The template below handles this for you.
+      </p>
+    </li>
+    <li>
+      <h3>Generate your request letter</h3>
+      <p>
+        Use the builder below. It produces a complete, polite, legally grounded
+        request you can copy into an email.
+      </p>
+    </li>
+    <li>
+      <h3>Submit it to SPPS in writing</h3>
+      <p>
+        SPPS takes requests through its
+        <a href="https://www.spps.org/about/public-data-requests">Public Data Requests page</a>,
+        which is run under Board Policy 304.00 and its "Access to Public Data"
+        procedure (304.00.03). Submit through that page or by email, and keep a
+        dated copy of exactly what you sent.
+      </p>
+    </li>
+    <li>
+      <h3>Track the response</h3>
+      <p>
+        Expect a confirmation of receipt and a tentative timeline. If you've
+        heard nothing in two weeks, send a brief, polite follow-up replying to
+        your original message so the paper trail stays in one thread.
+      </p>
+    </li>
+    <li>
+      <h3>Inspect before you pay</h3>
+      <p>
+        If the district quotes copy fees, remember you may <em>inspect</em> the
+        records at no charge first, and electronic copies of electronic records
+        should cost little or nothing.
+      </p>
+    </li>
+    <li>
+      <h3>If you're denied or ignored</h3>
+      <p>
+        A denial must cite the specific statute. If you believe it's wrong — or
+        you simply get silence — you can ask the Minnesota Department of
+        Administration's
+        <a href="https://mn.gov/admin/data-practices/data/requests/">Data Practices Office</a>
+        for help, including a formal advisory opinion
+        (<a href="https://www.revisor.mn.gov/statutes/cite/13.072">§ 13.072</a>).
+        It's free, and districts take these opinions seriously.
+      </p>
+    </li>
+  </ol>
+
+  <h2 id="template">Build your request</h2>
+  <div class="card builder">
+    <div class="field">
+      <label for="rb-topic">What do you want to request?</label>
+      <select id="rb-topic">
+        {topics.map((t) => (
+          <option value={t.value} data-letter={t.letter}>{t.label}</option>
+        ))}
+      </select>
+    </div>
+    <div class="field" id="rb-custom-wrap" hidden>
+      <label for="rb-custom">Describe the records (be specific: document type, subject, who created them)</label>
+      <textarea id="rb-custom" rows="2" placeholder="e.g., all board presentations about the district's internet filtering software"></textarea>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="rb-from">From (year or date)</label>
+        <input id="rb-from" type="text" placeholder="e.g., January 2020" />
+      </div>
+      <div class="field">
+        <label for="rb-to">To</label>
+        <input id="rb-to" type="text" placeholder="e.g., the present" />
+      </div>
+    </div>
+    <div class="field">
+      <label for="rb-name">Your name (optional — not required by law, but practical for replies)</label>
+      <input id="rb-name" type="text" placeholder="Your name" />
+    </div>
+
+    <label class="out-label" for="rb-output">Your request letter</label>
+    <textarea id="rb-output" rows="16" readonly></textarea>
+    <button type="button" id="rb-copy">Copy letter</button>
+    <span id="rb-copied" class="copied" hidden>Copied ✓</span>
+    <p class="builder-fine">
+      Then paste it into the form on the
+      <a href="https://www.spps.org/about/public-data-requests">SPPS Public Data Requests page</a>
+      or into an email, and keep a copy.
+    </p>
+  </div>
+
+  <div class="note">
+    <p>
+      <strong>Not legal advice.</strong> This page summarizes the Minnesota
+      Government Data Practices Act in plain language. For authoritative
+      guidance, see the
+      <a href="https://mn.gov/admin/data-practices/data/requests/">Data Practices Office</a>
+      and <a href="https://www.revisor.mn.gov/statutes/cite/13">Minn. Stat. ch. 13</a>.
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  const topicSel = document.getElementById('rb-topic') as HTMLSelectElement;
+  const customWrap = document.getElementById('rb-custom-wrap') as HTMLElement;
+  const customTa = document.getElementById('rb-custom') as HTMLTextAreaElement;
+  const fromIn = document.getElementById('rb-from') as HTMLInputElement;
+  const toIn = document.getElementById('rb-to') as HTMLInputElement;
+  const nameIn = document.getElementById('rb-name') as HTMLInputElement;
+  const out = document.getElementById('rb-output') as HTMLTextAreaElement;
+  const copyBtn = document.getElementById('rb-copy') as HTMLButtonElement;
+  const copied = document.getElementById('rb-copied') as HTMLElement;
+
+  function describe(): string {
+    if (topicSel.value === 'custom') {
+      return customTa.value.trim() || '[describe the records you are requesting]';
+    }
+    return topicSel.selectedOptions[0].dataset.letter || '';
+  }
+
+  function build() {
+    customWrap.hidden = topicSel.value !== 'custom';
+    const from = fromIn.value.trim() || '[start date]';
+    const to = toIn.value.trim() || 'the present';
+    const name = nameIn.value.trim();
+    out.value = `To the Responsible Authority / Data Practices Compliance Official,
+Saint Paul Public Schools
+
+Re: Request for public data under the Minnesota Government Data Practices Act
+
+Pursuant to the Minnesota Government Data Practices Act, Minn. Stat. ch. 13, I request access to the following public government data:
+
+${describe()}, covering the period from ${from} to ${to}.
+
+I request electronic copies where the data exists in electronic form. If you anticipate any charges, please inform me of the estimated amount before fulfilling the request; alternatively, I am willing to inspect the data at no charge as provided by Minn. Stat. § 13.03.
+
+If any portion of this request is denied, please cite the specific statutory basis for the denial, as the Act requires, and release any data that can be separated from the non-public portion.
+
+Please confirm receipt of this request and let me know your anticipated timeline.
+
+Thank you for your assistance.
+
+${name ? name : '[Your name]'}`;
+  }
+
+  ['input', 'change'].forEach((ev) => {
+    [topicSel, customTa, fromIn, toIn, nameIn].forEach((el) => el.addEventListener(ev, build));
+  });
+  build();
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(out.value);
+    } catch {
+      out.select();
+      document.execCommand('copy');
+    }
+    copied.hidden = false;
+    setTimeout(() => (copied.hidden = true), 2000);
+  });
+</script>
+
+<style>
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: 0 6px 0 var(--card-shadow);
+    padding: 1.2rem 1.5rem 1.2rem 4.4rem;
+    margin: 1rem 0;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 1.3rem;
+    top: 1.3rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps h3 { margin: 0 0 0.4rem; }
+  .steps p { margin: 0; }
+
+  .builder .field { margin-bottom: 1rem; }
+  .builder label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .builder .row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .builder .row .field { flex: 1 1 12rem; }
+  .builder select,
+  .builder input,
+  .builder textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    padding: 0.5rem 0.8rem;
+  }
+  .builder select:focus,
+  .builder input:focus,
+  .builder textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+  .out-label { margin-top: 1.4rem; }
+  #rb-output {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    background: #fffdf8;
+  }
+  #rb-copy {
+    margin-top: 0.8rem;
+    font: inherit;
+    font-weight: 700;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    padding: 0.55rem 1.5rem;
+    cursor: pointer;
+  }
+  #rb-copy:hover { background: var(--teal-dark); }
+  .copied {
+    margin-left: 0.7rem;
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+  .builder-fine {
+    margin: 0.9rem 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+</style>
