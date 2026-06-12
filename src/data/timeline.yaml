@@ -8,19 +8,36 @@
 # - Every entry needs at least one source (label + url).
 # After editing, the site rebuilds automatically when changes are pushed to GitHub.
 
+- id: strategic-plan-2011
+  date: 2011-03
+  dateDisplay: "March 2011"
+  title: "'Strong Schools, Strong Communities' sets the stage"
+  category: policy
+  body: >
+    Superintendent Valeria Silva's three-year strategic plan, presented in
+    January 2011 and approved by the board that March, reorganizes the district
+    around neighborhood schools and "personalized learning" — the planning
+    framework that puts a technology levy on the next year's ballot.
+  sources:
+    - label: "Twin Cities Daily Planet"
+      url: "https://www.tcdailyplanet.net/strong-schools-strong-communities-plan-proposed-st-paul-schools/"
+
 - id: referendum-2012
   date: 2012-11
   dateDisplay: "November 2012"
   title: "Voters approve the 'Personalized Learning Through Technology' levy"
   category: funding
   body: >
-    Saint Paul voters approve a technology referendum of roughly $9 million per year.
-    During the campaign, the district described investments in infrastructure and
-    personalized learning — voters were told the plan did not include giving a
-    device to every student.
+    Saint Paul voters renew and expand a roughly $39 million per year operating
+    levy; the expansion — about $9 million per year — is earmarked for
+    "personalized learning through technology." During the campaign, the
+    district described investments in infrastructure and personalized learning —
+    voters were told the plan did not include giving a device to every student.
   sources:
     - label: "Star Tribune"
       url: "https://www.startribune.com/st-paul-schools-bring-ipads-into-the-classroom/305581621"
+    - label: "SPPS referendum communication (2012, archived)"
+      url: "http://archive.constantcontact.com/fs037/1102110613141/archive/1111183652270.html"
 
 - id: ipad-pivot-2014
   date: 2014-06
@@ -73,13 +90,17 @@
   category: covid
   body: >
     Distance learning turns every SPPS student into a full-time screen user
-    overnight. The district distributes tens of thousands of iPads and Wi-Fi
-    hotspots. Screens shift from a supplement to the primary medium of school —
-    and many pandemic-era habits (assignments, communication, and curriculum
-    delivered through the device) persist after classrooms reopen.
+    overnight. The district distributes nearly 3,000 Wi-Fi hotspots in spring
+    2020 alongside its existing 1:1 iPads, and begins the 2020–21 school year in
+    full distance learning on September 8. Screens shift from a supplement to
+    the primary medium of school — and many pandemic-era habits (assignments,
+    communication, and curriculum delivered through the device) persist after
+    classrooms reopen.
   sources:
-    - label: "SPPS Technology Services: Students & Families"
-      url: "https://www.spps.org/about/departments/technology-services/students-and-families"
+    - label: "Minnesota Reformer"
+      url: "https://minnesotareformer.com/2020/08/17/thousands-of-minnesota-students-still-dont-have-internet-for-distance-learning/"
+    - label: "Star Tribune"
+      url: "https://www.startribune.com/st-paul-schools-likely-to-begin-year-with-distance-learning/571962822/"
 
 - id: unesco-2023
   date: 2023-07
@@ -160,6 +181,21 @@
   sources:
     - label: "MinnPost"
       url: "https://www.minnpost.com/education/2025/12/turned-off-and-put-away-at-st-pauls-central-high-students-have-gone-cell-phone-free-and-survived-minnesota-policy/"
+
+- id: levy-2025
+  date: 2025-11
+  dateDisplay: "November 2025"
+  title: "Voters approve a $37.2 million operating levy"
+  category: funding
+  body: >
+    Facing budget pressure, the district asks voters for a $37.2 million per
+    year operating levy increase, and it passes with about 65% support. The vote
+    sets the funding context for the district's next technology decisions — and
+    is a reminder that Saint Paul voters reliably show up for their schools when
+    asked.
+  sources:
+    - label: "Sahan Journal"
+      url: "https://sahanjournal.com/democracy-politics/st-paul-schools-referendum-2025/"
 
 - id: mn-ban-bill-2026
   date: 2026-02
