@@ -104,7 +104,7 @@ main.wide { max-width: var(--wide); }
 .lede {
   font-size: 1.2rem;
   color: var(--ink-soft);
-  max-width: 38rem;
+  max-width: 56rem;
 }
 
 .skip-link {
