@@ -1,0 +1,45 @@
+Skip To Main Content
+Toggle Menu
+Search
+Clear
+Search
+Schools & Programs
+Contact Us
+Students and Families
+Saint Paul Public Schools has one of the largest and longstanding 1:1 device initiatives in the midwest area, with nearly 40,000 iPads for students and staff and over 4,000 Macbooks for instructional staff.
+When every student has a device in their hands, technology moves to the background and learning takes center stage. Teachers are able to customize and tailor their instruction for all students providing an equitable learning experience across classrooms and buildings.
+84% of SPPS secondary students believe the way SPPS teachers use iPads help them learn better, and iPads are "useful" or "very useful" for homework, written assignments, research and other classroom activities.Spring 2025 Technology Survey Results
+iPad Help Campus Portal SCHOOLOGY SECURLy HOME
+Family Support Page
+A 1:1 device program means:
+Equipment Details:
+Loss, Damaged and Stolen Devices
+Student iPad Security and Privacy
+Student Privacy, Tracking and Location
+Every student in the district has access to an iPad during the school day and carries it with them from class to class. Secondary students are able to take the iPad home after school to extend the learning experiences.
+Putting devices in the hands of every student in Saint Paul Public Schools prepares the children of our community to be career and college ready as well as life-long learners. Benefits include:
+creating personalized learning environments through individual devices assigned to students.
+empowering students to find their voice and share it.
+fostering collaboration among students.
+encouraging critical thinking skills.
+providing greater online security, as devices can be set up for individual use only.
+increasing opportunities to teach digital citizenship and online stewardship.
+allowing all students to have 24/7 access to instructional content.
+facilitating increased communication with teachers.
+Elementary Students receive an iPad and keyboard case each fall. In most cases, iPads stay in classroom charging carts at night unless there is a specific project or weather related need.
+Secondary Students receive an iPad and keyboard case and take it home each night and over the summer.
+Saint Paul Public Schools uses educational, restorative and preventative practices when responding to iPad misuse. Building Administrators may adjust access to student technology access in coordination with behavior intervention practices.
+Families have the option to decline devices being sent home at any time.
+Students and families should notify a teacher or staff member immediately if their iPad is damaged or lost. No fines can be required for student iPad breakage or loss due to MN state statutes (sections 123B.34 to 123B.39).
+Depending on circumstance, schools may request, not require, families to pay for damaged or missing accessories or iPads. Additional consequences are determined by the school and can include loss of the privilege to take an iPad home and additional instruction in appropriate iPad use.
+In the event of student iPad damage or loss, students may be required to review concepts of annual SPPS Digital Citizenship courses, which includes appropriate and responsible use of technology, Online Safety and Privacy, and Appropriate Online Behavior. Saint Paul Public Schools partners with Common Sense Media to provide lessons on digital citizenship. Read more about SPPS Digital Citizenship here.
+All student and staff iPads are pre-configured with functionality customized for education. Saint Paul Public Schools actively works with several security vendors to create and update security policies. Most relevant to this conversation is the “JAMF” mobile device (iPad & Macbook) management system. JAMF is a Minnesota - based company, one of the leading companies nationwide and worldwide managing Apple devices. Some of the features our JAMF management system controls on student iPads include:
+Internet Filtering:
+Student iPads have pre-installed internet filtering. Adult content is blocked from student access, as well as social media site such as Facebook, Snapchat and TikTok. While no content filter is 100% foolproof, our Technology Services team is responsive in continually adjusting filters to keep students safe and protected.
+App Store / FaceTime / iMessage:
+Although SPPS uses Apple iPads, many apps and tools are not relevant or desirable for the classroom (either physical or virtual!). Pre-installed device management features block apps such as the Apple App Store, FaceTime, iMessage and other tools. Students cannot add their own personal Email accounts, and throughout most of the school year students are unable to reset (erase) their own iPads due to the difficulty of setting the device up again and/or circumnavigating the security management features.
+Self Service App Store:
+Students and staff have access to a special ‘app store’ on the iPads with over 400 apps that have been reviewed for content, data privacy and security guidelines. More information about the App Approval process and Security Review can be found at: spps.org/apps
+External “LMS” companies, including Seesaw, Schoology and others sign contracts and data sharing agreements with Saint Paul Public Schools. Student Data privacy is of the utmost importance to all. Student data is NOT tracked by these companies after our students leave or move to the next system. Often, these companies are unable to see into our systems because of the security and privacy policies set by both sides, intentionally. Students and staff authenticate into these systems with their school username and password. When SPPS deactivates or changes that account password, the student account in Seesaw or Schoology is inaccessible.
+Camera and microphone use on the iPad is controlled on an app-by-app basis by the student. When opening an app for the first time, the iPad will prompt students to ‘allow’ access to the microphone and camera. This pop up can be confusing for many students (and staff). It does not mean the app is listening or watching the student from that point onwards. Students must always tap ‘record’ for the microphone or camera to begin recording. If students disabled the camera access by default, they would need to go to the Settings app and enable access every time the app was opened. They would still have to tap ‘record’ once in the app.
+Student location tracking is not allowed for third party apps. Location tracking of the device is reserved for security and lost device procedures by a core group of Technology Services staff. General staff do not have ability to view device location. Student location tracking is one of the items prohibited by the SPPS apps review process and in accordance with Federal education guidelines.
