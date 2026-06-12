@@ -24,8 +24,8 @@
   --cat-context: #8a8f84;
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --measure: 58rem;
-  --wide: 84rem;
+  --measure: 50rem;
+  --wide: 72rem;
 }
 
 * { box-sizing: border-box; }
@@ -106,7 +106,7 @@ main.wide { max-width: var(--wide); }
 .lede {
   font-size: 1.2rem;
   color: var(--ink-soft);
-  max-width: 56rem;
+  max-width: 48rem;
 }
 
 .skip-link {
