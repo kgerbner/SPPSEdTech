@@ -8,3 +8,4 @@ npm-debug.log*
 policy-watch-report.md
 policy-watch-unreachable.md
 link-check-report.md
+__pycache__/
