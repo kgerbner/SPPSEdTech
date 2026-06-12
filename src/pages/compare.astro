@@ -112,26 +112,11 @@ const spps = {
   </div>
 
   <h2>The details, district by district</h2>
-  <div class="grid">
+  <div class="detail-list">
     {districts.map((d) => (
       <DistrictCard district={d.data} anchor={slug(d.data.name)} />
     ))}
   </div>
-
-  <h2>An honest look at the evidence</h2>
-  <p>
-    Not every study is a slam dunk, and this site doesn't pretend otherwise. The
-    largest study of school phone bans to date — covering schools using locked
-    pouches — found that in-class personal phone use collapsed (from 61% of
-    students to 13%) but measurable academic gains lagged in the first year
-    (<a href="https://www.nbcnews.com/tech/tech-news/largest-ever-study-school-cell-phone-bans-finds-mixed-results-rcna343761">NBC News</a>).
-    Florida's longer experience suggests the gains arrive in year two and beyond
-    (<a href="https://www.the74million.org/article/florida-study-cellphone-bans-promote-academic-gains-after-a-year-or-so/">The 74</a>).
-    The lesson isn't that limits don't work — it's that removing distraction is
-    the beginning, and what fills the reclaimed attention matters just as much.
-    That's why the question for SPPS isn't only "where are the phones?" but
-    "what is the iPad for?"
-  </p>
 </BaseLayout>
 
 <style>
@@ -204,11 +189,11 @@ const spps = {
   }
   .legend .dot { width: 0.95rem; height: 0.95rem; }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  .detail-list {
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem;
     margin-top: 1.5rem;
   }
-  .grid :global(.card) { margin: 0; }
+  .detail-list :global(.card) { margin: 0; }
 </style>

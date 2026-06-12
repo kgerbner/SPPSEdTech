@@ -15,9 +15,11 @@ const { district, anchor } = Astro.props;
 ---
 
 <article class="card district" id={anchor}>
-  <h3>{district.name}</h3>
-  <p class="where">{district.location}</p>
-  <p>{district.summary}</p>
+  <div class="head">
+    <h3>{district.name}</h3>
+    <p class="where">{district.location}</p>
+  </div>
+  <p class="summary">{district.summary}</p>
   {district.highlights && (
     <ul>
       {district.highlights.map((h) => <li>{h}</li>)}
@@ -28,15 +30,33 @@ const { district, anchor } = Astro.props;
 
 <style>
   .district { scroll-margin-top: 5rem; }
-  .district h3 { margin: 0 0 0.1rem; }
+  .head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
+  .district h3 { margin: 0; }
   .where {
-    margin: 0 0 0.75rem;
+    margin: 0;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--ink-soft);
     font-weight: 600;
   }
-  ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
-  li { margin: 0.25rem 0; }
+  .summary { margin: 0; }
+  ul {
+    margin: 0.75rem 0 0;
+    padding-left: 1.2rem;
+  }
+  li {
+    margin: 0.25rem 0;
+    break-inside: avoid;
+  }
+  @media (min-width: 44rem) {
+    ul { columns: 2; column-gap: 2.5rem; }
+  }
 </style>

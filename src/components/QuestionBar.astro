@@ -126,7 +126,7 @@ const examples = [
       <div class="qa-card">
         <p class="qa-cite"><span class="qa-badge">${esc(e.source)}</span> ${esc(e.citation)}</p>
         <p class="qa-text">${e.kind === 'summary' ? '<em>Summary:</em> ' : ''}${esc(e.text)}</p>
-        <p class="qa-link"><a href="${esc(e.url)}" rel="noopener">Read the full source →</a></p>
+        <p class="qa-link"><a href="${esc(e.url)}" target="_blank" rel="noopener">Read the full source →</a></p>
       </div>`
       )
       .join('');
