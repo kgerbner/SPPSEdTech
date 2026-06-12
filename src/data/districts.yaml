@@ -1,56 +1,152 @@
 # How SPPS Compares — districts and states with stronger limits on
 # intrusive/addictive technology.
 #
-# HOW TO EDIT: each entry needs name, location, summary, and sources.
-# "highlights" is an optional bulleted list. Keep summaries factual and sourced.
+# HOW TO EDIT: each entry needs name, location, summary, matrix, and sources.
+# "matrix" drives the scorecard at the top of the page. For each of the five
+# dimensions use: full (strong limit in force), part (partial limit),
+# none (no limit found), na (not addressed / unclear).
+# Dimensions: phones (personal phones), screentime (caps on school devices),
+# takehome (limits on devices going home), youtube (blocked on student
+# devices), earlygrades (device-free early grades).
 
 - name: "Los Angeles Unified School District"
   location: "Los Angeles, CA — 2nd largest U.S. district"
   summary: >
-    The first major district to adopt a comprehensive screen-time policy covering
-    its own school-issued devices, not just student phones. LAUSD also learned the
+    The first major district to mandate screen-time limits on its own devices.
+    A unanimous April 2026 board resolution requires the district to eliminate
+    devices until 2nd grade, set daily and weekly screen caps in every grade,
+    block YouTube on school devices, and ban devices at lunch and recess in
+    elementary and middle school — effective 2026–27. LAUSD also learned the
     hard way: its $1.3 billion iPad program collapsed in 2013–15, a story that
     closely parallels the SPPS iPad rollout of the same era.
   highlights:
     - "No school-issued devices for students before 2nd grade"
-    - "Daily and weekly screen-time limits in every grade (effective fall 2026)"
+    - "Daily and weekly screen-time limits in every grade (effective 2026–27)"
     - "YouTube blocked on student devices; no devices at elementary/middle school lunch and recess"
     - "Separate bell-to-bell phone ban in place since February 2025"
+  matrix:
+    phones: full
+    screentime: full
+    takehome: part
+    youtube: full
+    earlygrades: full
   sources:
-    - label: "NBC News"
-      url: "https://www.nbcnews.com/tech/tech-news/la-parents-kids-school-issued-ipad-chromebook-los-angeles-rcna245624"
+    - label: "NBC News (board resolution)"
+      url: "https://www.nbcnews.com/news/education/los-angeles-school-district-require-screen-time-limits-rcna332173"
+    - label: "EdSource (policy detail)"
+      url: "https://edsource.org/2026/classroom-screen-time-limits-policy/756523"
+    - label: "Education Week"
+      url: "https://www.edweek.org/technology/nations-2nd-largest-district-moves-to-limit-student-screen-use/2026/04"
     - label: "KPCC: LAUSD iPad program timeline"
       url: "https://projects.scpr.org/timelines/lausd-ipads/"
 
 - name: "Fresno Unified School District"
   location: "Fresno, CA"
   summary: >
-    Reversing course on elementary 1:1 computing: take-home laptops for elementary
-    students are being pulled back to classroom-only use, with the district
-    refocusing on supervised, purposeful in-class technology rather than
+    Reversing course on elementary 1:1 computing: 40,000 elementary students
+    are returning their take-home laptops, with computer access shifting to
+    classroom-only — supervised, purposeful in-class technology rather than
     around-the-clock device access.
+  matrix:
+    phones: full
+    screentime: part
+    takehome: full
+    youtube: none
+    earlygrades: part
   sources:
     - label: "EdSource"
       url: "https://edsource.org/2026/fresno-unified-elementary-students-must-return-laptops-as-district-shifts-focus-to-in-class-use/751213"
+
+- name: "Simi Valley Unified School District"
+  location: "Simi Valley, CA"
+  summary: >
+    Stopped sending devices home with its younger students this year — they now
+    stay in classroom carts. The district cited costly repairs, "inappropriate
+    Google searches," and video games. A small district making the same move as
+    Fresno, for plainly stated reasons.
+  matrix:
+    phones: full
+    screentime: none
+    takehome: full
+    youtube: none
+    earlygrades: none
+  sources:
+    - label: "AP via ABC News"
+      url: "https://abcnews.com/Technology/wireStory/americas-schools-face-backlash-digital-devices-screens-saturate-133303539"
+
+- name: "Connecticut districts (Greenwich, Milford)"
+  location: "Connecticut"
+  summary: >
+    Targeted YouTube rollbacks: Greenwich removed YouTube from elementary
+    school devices after students kept watching videos unrelated to learning,
+    and Milford is implementing a YouTube-access protocol for 2025–26 —
+    evidence that districts can pull single high-distraction platforms without
+    touching anything else.
+  matrix:
+    phones: na
+    screentime: none
+    takehome: none
+    youtube: full
+    earlygrades: none
+  sources:
+    - label: "GovTech"
+      url: "https://www.govtech.com/education/k-12/some-connecticut-schools-may-restrict-youtube-access"
 
 - name: "Pennsylvania districts (e.g., Arlington SD)"
   location: "Pennsylvania"
   summary: >
     A growing group of Pennsylvania districts is removing laptops from younger
     students' classrooms and buying paper textbooks again, citing screen-time
-    backlash from parents and teachers and thin evidence that the devices improved
-    learning.
+    backlash from parents and teachers and thin evidence that the devices
+    improved learning.
+  matrix:
+    phones: na
+    screentime: part
+    takehome: full
+    youtube: none
+    earlygrades: part
   sources:
     - label: "Spotlight PA"
       url: "https://www.spotlightpa.org/news/2026/05/schools-remove-classroom-laptops-screen-time-backlash-education/"
 
+- name: "Kansas and the 2026 state wave"
+  location: "State legislatures nationwide"
+  summary: >
+    In 2026 the screen-time question reached statehouses: Kansas enacted an
+    outright prohibition on digital devices in elementary schools; Oklahoma
+    capped K–5 device use at 60 minutes a day (with a similar bipartisan bill
+    moving in Iowa); and Alabama, Tennessee, Utah, and Virginia passed
+    legislation reining in elementary instructional screen use. Trackers count
+    14–16 states with screen-time bills this cycle.
+  matrix:
+    phones: na
+    screentime: full
+    takehome: na
+    youtube: na
+    earlygrades: full
+  sources:
+    - label: "MultiState (legislative roundup)"
+      url: "https://www.multistate.us/insider/2026/4/8/elementary-school-screen-time-limits-gain-momentum-in-2026"
+    - label: "NPR"
+      url: "https://www.iowapublicradio.org/news-from-npr/2026-05-01/several-states-and-the-la-public-schools-are-setting-limits-on-screen-time"
+    - label: "Radio Iowa"
+      url: "https://www.radioiowa.com/2026/02/17/bill-calls-for-screen-time-limits-in-iowas-elementary-classrooms/"
+    - label: "AP via ABC News"
+      url: "https://abcnews.com/Technology/wireStory/americas-schools-face-backlash-digital-devices-screens-saturate-133303539"
+
 - name: "Texas (statewide)"
   location: "Texas — all public schools"
   summary: >
-    A statewide bell-to-bell ban on personal communication devices took effect in
-    fall 2025, covering the entire school day, not just class time. Texas joined a
-    wave of states — including New York and Virginia — that decided this issue is
-    too important to leave to school-by-school discretion.
+    A statewide bell-to-bell ban on personal communication devices took effect
+    in fall 2025, covering the entire school day, not just class time. Texas
+    joined a wave of states — including New York and Virginia — that decided
+    this issue is too important to leave to school-by-school discretion.
+  matrix:
+    phones: full
+    screentime: none
+    takehome: none
+    youtube: none
+    earlygrades: none
   sources:
     - label: "Ballotpedia: State policies on cellphone use in K-12 schools"
       url: "https://ballotpedia.org/State_policies_on_cellphone_use_in_K-12_public_schools"
@@ -61,8 +157,14 @@
     Florida banned phones during class time in 2023, giving researchers the
     longest track record to study. Early findings: districts with full-day bans
     saw test-score gains of roughly 3.5 percentile points by the second year,
-    alongside fewer disciplinary incidents — evidence that the benefits compound
-    over time.
+    alongside fewer disciplinary incidents — evidence that the benefits
+    compound over time.
+  matrix:
+    phones: full
+    screentime: none
+    takehome: none
+    youtube: none
+    earlygrades: none
   sources:
     - label: "The 74"
       url: "https://www.the74million.org/article/florida-study-cellphone-bans-promote-academic-gains-after-a-year-or-so/"
@@ -75,6 +177,12 @@
     A near-peer Minnesota district with an explicit "Phone-Free Schools" policy —
     showing that stronger, clearly-communicated limits are achievable under the
     same Minnesota law SPPS operates under.
+  matrix:
+    phones: full
+    screentime: none
+    takehome: none
+    youtube: none
+    earlygrades: none
   sources:
     - label: "Stillwater Area Public Schools"
       url: "https://www.stillwaterschools.org/our-district/school-board/district-policies/phone-free-policy"
@@ -85,6 +193,12 @@
     Another Twin Cities district that moved earlier and further than SPPS on
     phone-free school days, providing a local comparison point for what
     implementation looks like in practice.
+  matrix:
+    phones: full
+    screentime: none
+    takehome: none
+    youtube: none
+    earlygrades: none
   sources:
     - label: "Mounds View Public Schools"
       url: "https://www.mvpschools.org/about/news/cellphones"

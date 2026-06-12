@@ -2,34 +2,119 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DistrictCard from '../components/DistrictCard.astro';
 import { getCollection } from 'astro:content';
+import { href } from '../utils';
 
 const districts = await getCollection('districts');
+
+const slug = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+const dimensions = [
+  { key: 'phones', label: 'Personal phones' },
+  { key: 'screentime', label: 'Screen-time caps (school devices)' },
+  { key: 'takehome', label: 'Take-home limits' },
+  { key: 'youtube', label: 'YouTube blocked' },
+  { key: 'earlygrades', label: 'Device-free early grades' },
+] as const;
+
+const statusText: Record<string, string> = {
+  full: 'Strong limit in force',
+  part: 'Partial limit',
+  none: 'No limit found',
+  na: 'Not addressed / unclear',
+};
+
+// SPPS's own row: phones limited by Policy 550.00; elementary iPads mostly
+// stay in carts (partial take-home limit); YouTube Shorts blocked (partial);
+// no screen-time caps; iPads from kindergarten.
+const spps = {
+  phones: 'full',
+  screentime: 'none',
+  takehome: 'part',
+  youtube: 'part',
+  earlygrades: 'none',
+} as const;
 ---
 
 <BaseLayout
   title="How SPPS Compares"
-  description="How Saint Paul Public Schools compares to districts and states that have put meaningful limits on intrusive and addictive technology."
+  description="A five-dimension scorecard comparing Saint Paul Public Schools to districts and states that have put meaningful limits on school technology."
   wide
 >
   <h1>How SPPS Compares</h1>
   <p class="lede">
-    SPPS's 2025 phone policy was a real step. But districts and states around the
-    country are going further — regulating not just students' phones but the
-    schools' own screens. Here's what "further" looks like.
+    SPPS's 2025 phone policy was a real step. But districts and states around
+    the country are going further — regulating not just students' phones but
+    the schools' own screens. Five dimensions of restraint, at a glance.
+  </p>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th scope="col"><span class="visually-hidden">District or state</span></th>
+          {dimensions.map((d) => <th scope="col">{d.label}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="spps-row">
+          <th scope="row">
+            <a href={href('/policy/')}>SPPS (Saint Paul)</a>
+            <span class="you-are-here">you are here</span>
+          </th>
+          {dimensions.map((d) => (
+            <td>
+              <span class={`dot dot-${spps[d.key]}`} title={`SPPS — ${d.label}: ${statusText[spps[d.key]]}`}>
+                <span class="visually-hidden">{statusText[spps[d.key]]}</span>
+              </span>
+            </td>
+          ))}
+        </tr>
+        {districts.map((dist) => (
+          <tr>
+            <th scope="row">
+              <a href={`#${slug(dist.data.name)}`}>{dist.data.name}</a>
+            </th>
+            {dimensions.map((d) => (
+              <td>
+                <span
+                  class={`dot dot-${dist.data.matrix[d.key]}`}
+                  title={`${dist.data.name} — ${d.label}: ${statusText[dist.data.matrix[d.key]]}`}
+                >
+                  <span class="visually-hidden">{statusText[dist.data.matrix[d.key]]}</span>
+                </span>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="legend">
+    <span class="dot dot-full"></span> strong limit in force
+    <span class="dot dot-part"></span> partial limit
+    <span class="dot dot-none"></span> no limit found
+    <span class="dot dot-na"></span> not addressed
+    &nbsp;·&nbsp; Click a row name for the details and sources.
   </p>
 
   <div class="note">
     <p>
-      <strong>The pattern to notice:</strong> the strongest movers regulate
-      <em>school-issued</em> technology — age minimums, screen-time caps,
-      classroom-only devices, paper textbooks where evidence favors them. SPPS
-      policy currently regulates only what students bring from home.
+      <strong>How to read this honestly.</strong> The dots summarize the sourced
+      details below — judgment calls live in the cards, not hidden in the
+      colors. Note that SPPS earns partial credit where it's due: elementary
+      iPads mostly stay in classroom carts, and YouTube Shorts are blocked. And
+      crude limits have critics too: most enacted screen-time laws carve out
+      exceptions for assessments and assistive technology, a caution
+      <a href="https://fordhaminstitute.org/national/commentary/beware-unintended-consequences-school-screen-time-limits">raised by the Fordham Institute</a>.
     </p>
   </div>
 
+  <h2>The details, district by district</h2>
   <div class="grid">
     {districts.map((d) => (
-      <DistrictCard district={d.data} />
+      <DistrictCard district={d.data} anchor={slug(d.data.name)} />
     ))}
   </div>
 
@@ -50,6 +135,75 @@ const districts = await getCollection('districts');
 </BaseLayout>
 
 <style>
+  .matrix-wrap {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 0 var(--card-shadow);
+  }
+  .matrix {
+    margin: 0;
+    box-shadow: none;
+    min-width: 56rem;
+  }
+  .matrix thead th {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    vertical-align: bottom;
+  }
+  .matrix thead th:first-child { background: var(--teal); }
+  .matrix tbody th {
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .matrix tbody th a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .matrix tbody th a:hover { color: var(--coral); }
+  .matrix td { text-align: center; }
+  .spps-row {
+    background: var(--sand);
+  }
+  .spps-row th a { color: var(--ink); }
+  .you-are-here {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #a4471f;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .dot {
+    display: inline-block;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .dot-full { background: var(--teal); }
+  .dot-part {
+    background: linear-gradient(90deg, var(--gold) 50%, transparent 50%);
+    border: 3px solid var(--gold);
+  }
+  .dot-none { border: 3px solid #b8b2a6; }
+  .dot-na {
+    border: 3px dotted #b8b2a6;
+    opacity: 0.7;
+  }
+  .legend {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.6rem;
+    margin-top: 1rem;
+  }
+  .legend .dot { width: 0.95rem; height: 0.95rem; }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

@@ -22,6 +22,8 @@ const timeline = defineCollection({
   }),
 });
 
+const matrixStatus = z.enum(['full', 'part', 'none', 'na']);
+
 const districts = defineCollection({
   loader: file('src/data/districts.yaml', {
     parser: (text) => parse(text).map((d: { name: string }) => ({ id: d.name, ...d })),
@@ -31,6 +33,13 @@ const districts = defineCollection({
     location: z.string(),
     summary: z.string(),
     highlights: z.array(z.string()).optional(),
+    matrix: z.object({
+      phones: matrixStatus,
+      screentime: matrixStatus,
+      takehome: matrixStatus,
+      youtube: matrixStatus,
+      earlygrades: matrixStatus,
+    }),
     sources: z.array(source).min(1, 'every district entry needs at least one source'),
   }),
 });

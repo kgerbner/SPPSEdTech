@@ -9,11 +9,12 @@ interface Props {
     highlights?: string[];
     sources: { label: string; url: string }[];
   };
+  anchor?: string;
 }
-const { district } = Astro.props;
+const { district, anchor } = Astro.props;
 ---
 
-<article class="card district">
+<article class="card district" id={anchor}>
   <h3>{district.name}</h3>
   <p class="where">{district.location}</p>
   <p>{district.summary}</p>
@@ -26,6 +27,7 @@ const { district } = Astro.props;
 </article>
 
 <style>
+  .district { scroll-margin-top: 5rem; }
   .district h3 { margin: 0 0 0.1rem; }
   .where {
     margin: 0 0 0.75rem;
