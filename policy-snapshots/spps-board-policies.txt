@@ -152,18 +152,17 @@ FORM 415 - rEPORTING FORM FOR 415, TITLE IX OR STUDENT CONDUCT COMPLAINTS
 601.00 Educational Programming
 601.00.1 | PROCEDURE Secondary Credit for Middle School Students
 600.00.2 | PROCEDURE Rigorous Course Waiver
-602.00 Curriculum, Development, Instruction & Accountability
-602.01 Multicultural, Intercultural, Non-Racist, Non-Sex-Biased, Gender & Disability Fair Education
+602.00 Curriculum, Instruction, and Accountability
+602.01 Inclusive and Equitable Education
 603.00 Organization of School Calendar and School Day
 606.5 Library Materials
 606.5.1 | PROCEDURE Reconsideration of Library Materials
 606.5 | FORM Request for Library Reconsideration Form
-607.00 Textbooks & Instructional Materials
+607.00 Selection and Adoption of Instructional Materials
 607.00.1 | PROCEDURE Instructional Materials Reconsideration
 607.00.1 | FORM Request for Reconsideration
 607.00.2 | PROCEDURE Request to Opt Out of Instruction or Materials
 607.00.2 | FORM Alternative Instruction Plan
-607.01 Textbook Selection & Adoption
 609.00 Religion
 610.00 Field Trips
 610.00.1 | PROCEDURE Field Trips
@@ -175,10 +174,8 @@ FORM 415 - rEPORTING FORM FOR 415, TITLE IX OR STUDENT CONDUCT COMPLAINTS
 701.00 Investments and Banking
 701.01 Fund Balance
 702.02 Imprest Cash Accounts
-703.00 Annuities
-705.00 Investments
 706.00 Grants & Gifts
-707.00 Transportation Eligibility
+707.00 Transportation: Eligibility
 707.02 Transportation: Student Conduct
 707.04 Transportation: Student School Bus Safety Training
 707.05 Transportation: Type III School Buses
